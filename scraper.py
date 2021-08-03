@@ -10,17 +10,18 @@ from selenium.webdriver.common.action_chains import ActionChains
 import re
 
 # start webdriver
-driver = webdriver.Chrome(executable_path="C:\\Users\\test\\Documents\\wn\\chromedriver.exe")
+driver = webdriver.Chrome(executable_path="C:\\Users\\test\\AppData\\Local\\Programs\\Python\\Python36\\chromedriver.exe")
 driver.implicitly_wait(0.5)
 driver.maximize_window()
 
 # config
-output_filename = "江东双璧_raw_plaintext.txt"
-first_ch_url = "http://www.jjwxc.net/onebook.php?novelid=2467979&chapterid=1"
-next_ch_button_xpath = '//a[span[ text() = "下一章→"]]'
+output_filename = "将进酒_cn_trad_raw_plaintext.txt"
+first_ch_url = "https://www.twfanti.com/JiangJinJiu/read_3_p2.html"
+next_ch_button_xpath = "//a[@class='pt-nextchapter']"
 output_type = "plaintext"
-body_xpath = '//*[@id="oneboolt"]/tbody/tr[2]/td[1]/div[1]'
-chapter_header_xpath = "//h2"
+body_xpath = "//div[@class='size16 color5 pt-read-text']"
+chapter_header_xpath = "//h1/a[@title]"
+
 
 def get_body_text(body_xpath):
     print('getting body')
@@ -58,7 +59,7 @@ while next_page_exists:
     # reference: https://www.soudegesu.com/en/post/python/selenium-wait-element/
     if first_ch_url.startswith('http://www.jjwxc.net/'):
         l_change_button_wait = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "//a[text() = '简体版']")))
+            EC.presence_of_element_located((By.XPATH, "//a [text() = '简体版' or text() = '简体版']")))
     elif first_ch_url.startswith('https://www.wattpad.com/'):
         load_button_xpath = "//a[@class='on-load-more-page load-more-page next-up grey']"
         # load_more_button_wait = WebDriverWait(driver, 5).until(
@@ -72,18 +73,18 @@ while next_page_exists:
     html = get_body_text(body_xpath)
 
     if output_type == "plaintext":
-        ##write chapter title
+        #write chapter title
         f.write('\n')
         f.write(driver.find_element(By.XPATH, chapter_header_xpath).text)
         f.write('\n\n')
 
         #write body
         soup = bs(html, "lxml")
-        if first_ch_url.startswith('http://www.jjwxc.net/'):
+        if first_ch_url.startswith('http://www.jjwxc.net/') or first_ch_url.startswith('https://www.oldtimescc.cc/'):
             f.write('\n')
             f.write(driver.find_element(By.XPATH, body_xpath).text)
             f.write('\n')
-        elif first_ch_url.startswith('https://www.wattpad.com/'):
+        elif first_ch_url.startswith('https://www.wattpad.com/') or first_ch_url.startswith('https://www.zhenhunxiaoshuo.com'):
             all_p = soup.find_all(['p'])
             for p in all_p:
                 p = str(p).replace("<br/>", "\n")  # change soup to text, replace <br/> with linebreak, revert back to soup
@@ -131,7 +132,7 @@ while next_page_exists:
             all_p = soup.find_all(['p'])
             for p in all_p:
                 f.write(p.get_text(strip=True))
-                f.write('\n\n')
+                f.write('\n')
 
         f.write("----------------------------------")
     else:
@@ -141,10 +142,6 @@ while next_page_exists:
     try:
         next_page_url = driver.find_element(By.XPATH, next_ch_button_xpath).get_attribute('href')
         print(next_page_url)
-
-        # if first_ch_url.startswith('http://www.jjwxc.net/'):
-        #     next_page_url = "http://www.jjwxc.net/" + next_page_url
-        #     print("after if " + next_page_url)
 
         driver.get(next_page_url)
         print("Proceeding to next page")
