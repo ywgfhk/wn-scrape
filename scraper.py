@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import re
-
+import sys
 
 def get_ch_links(driver, TOC_url, ch_link_xpath):
     driver.get(TOC_url)
@@ -42,6 +42,17 @@ def make_footnote_counter(start=1):
         return "%d. " % count[0]
     return footnote_counter
 
+def html_str_substitutions_for_footnote_formatting(html):
+    # html = re.sub(r'(<li.*?>)(.*?)(</li>)',r'\1<p>FOOTNOTE_PLACEHOLDER\2</p>\3', html, 0, re.DOTALL)
+    html = re.sub(r'(role="doc-endnote"><p>)', r'\1FOOTNOTE_PLACEHOLDER', html)  # temp
+    html = re.sub(r'(class="footnote-item"><p>)', r'\1FOOTNOTE_PLACEHOLDER', html)  # temp
+    html = re.sub('FOOTNOTE_PLACEHOLDER', make_footnote_counter(), html)
+    return html
+
+def decrypt(encoded):
+    #decrypts crysanthemom garden's text scrambling
+    keyMap = dict(zip('jymvfoutlpxiwcbqdgraenkzshCDJGSMXLPABOZRYUHEVKFNQWTI', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'))
+    return ''.join(keyMap.get(c, c) for c in encoded)
 
 def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath = '', next_ch_button_xpath = '', output_type='plaintext'):
     # open output file
@@ -75,8 +86,6 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath = '', n
                 except:
                     continue
 
-        html = get_body_text(driver, body_xpath)
-
         if output_type == "plaintext":
             # write chapter title
             f.write('\n')
@@ -87,69 +96,72 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath = '', n
                 except NoSuchElementException:
                     print("Header not found")
 
-            # common footnote pattern matching
-            html = re.sub(r'(<li class="easy-footnote-single">)(.*?)(</li>)',r'\1<p>FOOTNOTE_PLACEHOLDER\2</p>\3', html)
-            print(html)
-            html = re.sub(r'(role="doc-endnote"><p>)', r'\1FOOTNOTE_PLACEHOLDER', html)  # temp
-            html = re.sub(r'(class="footnote-item"><p>)', r'\1FOOTNOTE_PLACEHOLDER', html)  # temp
-            html = re.sub('FOOTNOTE_PLACEHOLDER', make_footnote_counter(), html)
-            soup = bs(html, "lxml")
-
+            #different scraping and formatting scripts for different webpages
             if first_ch_url.startswith('http://www.jjwxc.net/') or first_ch_url.startswith(
                     'https://www.oldtimescc.cc/'):
+                html = get_body_text(driver, body_xpath)
+                soup = bs(html, "lxml")
                 f.write('\n')
                 f.write(driver.find_element(By.XPATH, body_xpath).text)
                 f.write('\n')
             elif first_ch_url.startswith('https://www.wattpad.com/') or first_ch_url.startswith(
                     'https://www.zhenhunxiaoshuo.com'):
+                html = get_body_text(driver, body_xpath)
+                soup = bs(html, "lxml")
                 all_p = soup.find_all(['p'])
+                # change soup to str, replace <br/> with linebreak, remove Wattpad comment button text, revert back to soup
                 for p in all_p:
-                    p = str(p).replace("<br/>",
-                                       "\n")  # change soup to text, replace <br/> with linebreak, revert back to soup
-                    p = re.sub(r'<span class="num-comment">.*?</span>', "", p,
-                               flags=re.DOTALL)  # remove Wattpad comment button text
+                    p = str(p).replace("<br/>", "\n")
+                    p = re.sub(r'<span class="num-comment">.*?</span>', "", p, flags=re.DOTALL)
                     f.write(bs(p, "lxml").getText())
                     f.write('\n')
             elif first_ch_url.startswith('https://chrysanthemumgarden.com/'):
-                all_p = soup.find_all(['p'])
+                html = get_body_text(driver, body_xpath)
+                html = html_str_substitutions_for_footnote_formatting(html)
+                soup = bs(html, "lxml")
 
+                all_p = soup.find_all(['p'])
                 for p in all_p:
                     p = str(p)
-                    print(p)
                     # get translator's notes' id
                     tooltip_targets = re.findall(r'tooltip-target="(.*?)"', p)
-                    translator_notes = []
-                    if tooltip_targets:
-                        for t in tooltip_targets:
-                            tooltip_xpath = "//span[@tooltip-target=" + "'" + t + "']"
-                            text_xpath = "//div[@id='" + t + "']"
-                            print(tooltip_xpath)
-                            tooltip = driver.find_element(By.XPATH, tooltip_xpath)
-                            # driver.find_element(By.XPATH, "./ancestor::div[@class='row']").click()
-                            # tooltip.click()
-                            # text = driver.find_element(By.XPATH, text_xpath).text()
-                            # translator_notes.append(text)
+                    # translator_notes = []
+                    # if tooltip_targets:
+                    #     for t in tooltip_targets:
+                    #         tooltip_xpath = "//span[@tooltip-target=" + "'" + t + "']"
+                    #         text_xpath = "//div[@id='" + t + "']"
+                    #         print("find")
+                    #         tooltip = driver.find_element(By.XPATH, tooltip_xpath)
+                    #         print("click")
+                    #         #driver.find_element(By.XPATH, "./ancestor::div[@class='row']").click()
+                    #         tooltip.click()
+                    #         text = driver.find_element(By.XPATH, text_xpath).text()
+                    #         translator_notes.append(text)
 
-                    # clean body
-                    p = re.sub(r"<(span|h3|p) style=.*?hidden.*?>.*?</(span|h3|p)>", "", p,
-                               flags=re.DOTALL)  # remove hidden text
-                    p = re.sub(r"<(span|h3|p) class=.*?jum.*?>.*?</(span|h3|p)>", "", p,
-                               flags=re.DOTALL)  # remove jumbled text
-                    print(p)
+                    # clean body (remove hidden garbage text, decrypt jumbled text)
+                    p = re.sub(r"<[a-z]*? style=.*?hidden.*?>.*?</[a-z]*?>", "", p,
+                               flags=re.DOTALL)
+                    encrypted = re.findall(r'<[a-z]*? class="jum">(.*?)</[a-z]*?>', p, flags=re.DOTALL)
+                    for e in encrypted:
+                        d = decrypt(e)
+                        p = re.sub(r'<[a-z]*? class="jum">.*?</[a-z]*?>', d, p, count=1, flags=re.DOTALL)
                     # p = re.sub(r'<span class=tooltip-toggle.*?</span>', make_footnote_counter, p,
                     #            flags=re.DOTALL)  # add footnote number [%d]
-                    f.write(bs(p, "lxml").getText(strip=True))
+                    f.write(bs(p, "lxml").getText())
                     f.write('\n')
-                # write translators' note
 
-                if translator_notes:
-                    f.write("Translator's Note")
-                    note_idx = 1
-                    for note in translator_notes:
-                        f.write(note_idx + ". " + note + "\n")
+                # write translators' note
+                # if translator_notes:
+                #     f.write("Translator's Note")
+                #     note_idx = 1
+                #     for note in translator_notes:
+                #         f.write(note_idx + ". " + note + "\n")
 
             else:
-                all_p = soup.find_all(['p'])
+                html = get_body_text(driver, body_xpath)
+                html = html_str_substitutions_for_footnote_formatting(html)
+                soup = bs(html, "lxml")
+                all_p = soup.find_all(['p', 'cite'])
                 for p in all_p:
                     p = str(p).replace("<br/>", "\n")
                     p = p.replace('</sup>', "]")
@@ -164,6 +176,7 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath = '', n
 
         # Is there a next page?
         try:
+            print(next_ch_button_xpath)
             next_page_url = driver.find_element(By.XPATH, next_ch_button_xpath).get_attribute('href')
             print(next_page_url)
             driver.get(next_page_url)
@@ -178,9 +191,10 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath = '', n
     driver.quit()
 
 def parse_args():
-    #example_text = '''sample call: '''
+    example_text = """sample call:
+         python scraper.py https://cangji.net/qiangjinjiu/qiangjinjiu-c1/ 将进酒_ch1-160ongoing_Lianyin_plaintext.txt "//div[@class = 'post-entry']" -head "//h1" -b "(//div[@class='post-entry']//a[img])[last()-1]"
+         """
     parser = argparse.ArgumentParser()
-
     parser.add_argument("url",
                         help="Page to start scraping from.  Usually Chapter 1")
     parser.add_argument("output_filename", help="what to call the file")
@@ -193,15 +207,9 @@ def parse_args():
 
 if __name__ == "__main__":
     args = parse_args()
-    # output_type = "plaintext"
-    # output_filename = "将进酒_ch1-160ongoing_Lianyin_plaintext_footnotes.txt"
-    # first_ch_url = "https://cangji.net/qiangjinjiu/qiangjinjiu-c148/"
-    # next_ch_button_xpath = "(//div[@class='post-entry']/center/a[img])[last()]"
-    # body_xpath = "//div[@class = 'post-entry']"
-    # chapter_header_xpath = "//h1"
-
-    #python scraper.py https://cangji.net/qiangjinjiu/qiangjinjiu-c1/ 将进酒_ch1-160ongoing_Lianyin_plaintext_footnotes.txt "//div[@class = 'post-entry']" -head "//h1" -b "(//div[@class='post-entry']/center/a[img])[last()]"
-       first_ch_url = args.url
+    first_ch_url = args.url
+    output_filename = args.output_filename
+    body_xpath = args.body_xpath
     if args.header:
         chapter_header_xpath = args.header
     else:
@@ -210,8 +218,6 @@ if __name__ == "__main__":
         next_ch_button_xpath = args.button
     else:
         next_ch_button_xpath = ''
-    body_xpath = args.body_xpath
-    output_filename = args.output_filename
 
     main(first_ch_url, output_filename, body_xpath, chapter_header_xpath, next_ch_button_xpath) #leaving plaintext as only option for now
 
