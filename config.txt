@@ -2,33 +2,66 @@
 ### Ongoing Translations ###
 ############################
 
+# Card Room
+python scraper.py https://chrysanthemumgarden.com/novel-tl/cr/cr-1/ "Card Room_卡牌密室_ch1-441[ongoing_610]_rainbowmushroom(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+
 # Case File Compendium
-python scraper.py https://www.binganben.com/chapter-1-opening-shot/ "病案本_ch1-22_ONGOING_cookiecompany.txt" "//div[@class='entry-content']" -b "//a[span[contains (text(), 'Next')]]" -head "//h1[contains(@class, 'entry-title')]"
-python scraper.py https://www.binganben.com/chapter-23-the-murder-case-we-were-embroiled-in-had-yet-to-conclude/ "病案本_ch1-22_ONGOING_cookiecompany.txt" "//div[@class='entry-content']" -b "//a[span[contains (text(), 'Next')]]" -head "//h1[contains(@class, 'entry-title')]"
+python scraper.py https://www.binganben.com/chapter-1-opening-shot/ "Case File Compendium_病案本_ch1-26_ONGOING_cookiecompany.txt" "//div[@class='entry-content']" -b "//a[span[contains (text(), 'Next')]]" -head "//h1[contains(@class, 'entry-title')]"
+python scraper.py https://www.binganben.com/chapter-27-he-went-to-see-chen-man/ "Case File Compendium_病案本_ch1-30_ONGOING_cookiecompany.txt" "//div[@class='entry-content']" -b "//a[span[contains (text(), 'Next')]]" -head "//h1[contains(@class, 'entry-title')]"
 
 # Fourteenth Year of Chenghua
-python scraper.py https://chichilations.home.blog/2021/05/02/fyc-59/ "成化十四年_ch58-109_[total_151+18]_Chichi.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
+python scraper.py https://chichilations.home.blog/2021/05/02/fyc-59/ "Fourteenth Year of Chenghua_成化十四年_ch58-121_[total_151+18]_Chichi.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
 
-# Is the Gentleman Feeling Alright?
-python scraper.py https://uheitranslations.wordpress.com/2021/06/04/is-the-gentleman-feeling-alright-chapter-31/ "君有疾否_ch18-31_[ongoing_total_89+3]_uhei_plaintext.txt" "//div[@class='entry-content']" -b "//a[span[contains (text(), 'Next')]]" -head "//h1[contains(@class, 'entry-title')]"
+# How is this Gentleman Feeling? / Is the Gentleman Feeling Alright?
+python scraper.py https://uheitranslations.wordpress.com/2021/06/04/is-the-gentleman-feeling-alright-chapter-31/ "How is this Gentleman Feeling_君有疾否_ch18-31_[ongoing_total_89+3]_uhei.txt" "//div[@class='entry-content']" -b "//a[span[contains (text(), 'Next')]]" -head "//h1[contains(@class, 'entry-title')]"
 
-#Tiandi Baiju  (Fei Tian Ye Xiang)
-python scraper.py https://beansprouttranslates.wordpress.com/2020/07/03/chapter-1-where-have-you-been-all-these-years/ "天地白驹_ch1-44[ongoing_total_74]_beansprout_grapeseed_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(text(), 'Next')]" -head "//div[contains(@class, 'title-block')]//h1"
+# Tiandi Baiju  (Fei Tian Ye Xiang)
+python scraper.py https://beansprouttranslates.wordpress.com/2020/07/03/chapter-1-where-have-you-been-all-these-years/ "Tiandi Baiju_天地白驹_ch1-44[ongoing_total_74]_beansprout_grapeseed.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(text(), 'Next')]" -head "//div[contains(@class, 'title-block')]//h1"
 
 #Saye (dropped? Not updated since Jan)
-python scraper.py https://haikushilan.wordpress.com/2019/01/21/saye-chapter-1/ 撒野_ch1-61_[ongoing_total_141+5]_Sae_plaintext.txt "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'NEXT')]"
+python scraper.py https://haikushilan.wordpress.com/2019/01/21/saye-chapter-1/ Saye_撒野_ch1-61_[ongoing_total_141+5]_Sae_plaintext.txt "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'NEXT')]"
 
-#The Emperor's Strategy
-#Everywhere in Juanhu is Beautiful
-python scraper.py https://yorozuyaparty.com/dwgl-chapter-1/ 帝王攻略_ch1-77_[ongoing_total_193+8]_yorozuya.txt  "//div[contains(@class, 'entry-content')]" -head "//h1" -b "//a[@rel='next']"
-python scraper.py https://yorozuyaparty.com/dwgl-chapter-44/ 帝王攻略_ch1-77_[ongoing_total_193+8]_yorozuya.txt  "//div[contains(@class, 'entry-content')]" -head "//h1" -b "//a[@rel='next']"
+# The Emperor's Strategy
+# Everywhere in Juanhu is Beautiful
+python scraper.py https://yorozuyaparty.com/dwgl-chapter-1/ "The Emperor's Strategy_帝王攻略_ch1-77_[ongoing_total_193+8]_yorozuya.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1" -b "//a[@rel='next']"
+python scraper.py https://yorozuyaparty.com/dwgl-chapter-44/ "The Emperor's Strategy_帝王攻略_ch1-77_[ongoing_total_193+8]_yorozuya.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1" -b "//a[@rel='next']"
 #use all_p = soup.find_all(['div']) instead of all_p = soup.find_all(['p'])
-python scraper.py https://pucari.dreamwidth.org/651.html 帝王攻略_ch1-43_pucari.txt  "//div[contains(@class, 'entry-content')]" -head "//h3" -b "//li[contains(@class, 'link_next')]/a"
-python scraper.py https://yorozuyaparty.com/eijiw-chapter-34/ 江湖遍地是奇葩_ch5-51_[ongoing_total_172]_yorozuya.txt  "//div[contains(@class, 'entry-content')]" -head "//h1" -b "//a[@rel='next']"
+python scraper.py https://pucari.dreamwidth.org/651.html "Everywhere in Jianghu is Wonderful_帝王攻略_ch1-43_pucari.txt"  "//div[contains(@class, 'entry-content')]" -head "//h3" -b "//li[contains(@class, 'link_next')]/a"
+python scraper.py https://yorozuyaparty.com/eijiw-chapter-34/ "Everywhere in Jianghu is Wonderful_江湖遍地是奇葩_ch5-51_[ongoing_total_172]_yorozuya.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1" -b "//a[@rel='next']"
 
-#Tai Sui
-python scraper.py http://edanglarstranslations.com/ts/1 "太岁_ch1-91_[ONGOING]_EDanglars.txt" "//article/div" -head "(//h1)[last()]" -b "//a[contains(text(), 'Next')]"
-python scraper.py http://edanglarstranslations.com/ts/55 "太岁_ch1-91_[ONGOING]_EDanglars.txt" "//article/div" -head "(//h1)[last()]" -b "//a[contains(text(), 'Next')]"
+# Tai Sui
+python scraper.py http://edanglarstranslations.com/ts/1 "Tai Tsui_太岁_ch1-106_[ONGOING]_EDanglars.txt" "//article/div" -head "(//h1)[last()]" -b "//a[contains(text(), 'Next')]"
+python scraper.py http://edanglarstranslations.com/ts/55 "Tai Tsui_太岁_ch1-106_[ONGOING]_EDanglars.txt" "//article/div" -head "(//h1)[last()]" -b "//a[contains(text(), 'Next')]"
+
+# C Language Cultivation
+python scraper.py https://sebastianorra.wordpress.com/2020/05/21/clc-1/ "C Langauge Cultivation_C语言修仙_ch1-112_[ongoing_total_142+3]_Yiding.txt" "//div[contains(@class, 'entry-content')]" -b "//a[contains(text(), 'Next')]"
+python scraper.py https://sebastianorra.wordpress.com/2020/10/06/c-language-cultivation-45/ "C Langauge Cultivation_C语言修仙_ch1-112_[ongoing_total_142+3]_Yiding.txt" "//div[contains(@class, 'entry-content')]" -b "//a[span[contains(text(), 'Next')]]"
+python scraper.py https://sebastianorra.wordpress.com/2021/01/09/c-language-cultivation-71/ "C Langauge Cultivation_C语言修仙_ch1-112_[ongoing_total_142+3]_Yiding.txt" "//div[contains(@class, 'entry-content')]" -b "//a[span[contains(text(), 'Next')]]"
+python scraper.py https://sebastianorra.wordpress.com/2021/04/13/c-language-cultivation-89/ "C Langauge Cultivation_C语言修仙_ch1-112_[ongoing_total_142+3]_Yiding.txt" "//div[contains(@class, 'entry-content')]" -b "//a[span[contains(text(), 'Next')]]"
+python scraper.py https://sebastianorra.wordpress.com/2021/06/08/c-language-cultivation-99/ "C Langauge Cultivation_C语言修仙_ch1-112_[ongoing_total_142+3]_Yiding.txt" "//div[contains(@class, 'entry-content')]" -b "//a[span[contains(text(), 'Next')]]"
+python scraper.py https://sebastianorra.wordpress.com/2021/06/15/c-language-cultivation-101/ "C Langauge Cultivation_C语言修仙_ch1-112_[ongoing_total_142+3]_Yiding.txt" "//div[contains(@class, 'entry-content')]" -b "//a[span[contains(text(), 'Next')]]"
+
+# Panguan #uncomment html_str_substitutions_for_footnote_formatting line 1
+python scraper.py https://tinysalttranslations.com/novels/ongoing/pg/pg-1/ "Panguan_判官_1-39_[ongoing_117+6]_TinySaltTranslations.txt"  "//div[@class = 'entry-content']" -head "//h1[@class = 'entry-title']" -b "//a[contains(text(), 'Next')]"
+python scraper.py https://tinysalttranslations.com/novels/ongoing/pg/pg-38/ "Panguan_判官_1-39_[ongoing_117+6]_TinySaltTranslations.txt"  "//div[@class = 'entry-content']" -head "//h1[@class = 'entry-title']" -b "//a[contains(text(), 'Next')]"
+
+# I Can Do It 我行让我来 #uncomment html_str_substitutions_for_footnote_formatting line 1
+python scraper.py https://tinysalttranslations.com/novels/completed/icdi/icdi-1/ "I Can Do It_我行让我来_1-134+9_TinySaltTranslations.txt"  "//div[@class = 'entry-content']" -head "//h1[@class = 'entry-title']" -b "//a[contains(text(), 'Next')]"
+
+# Zhao Ge
+python scraper.py https://kahkafanyi.home.blog/footnotes/ "Zhao Ge_朝歌_1-214_FOOTNOTES_Kahka.txt" "//div[@class = 'entry-content']" -head "//h1[@class = 'entry-title']" -b "//div[@class='page-links']/span[contains(@class, 'current')]/following-sibling::a"
+python scraper.py https://kahkafanyi.home.blog/2020/08/29/zhao-ge-chapter-1/ "Zhao Ge_朝歌_1-214_[ongoing_236]_Kahka.txt" "//div[@class = 'entry-content']" -head "//h1[@class = 'entry-title']" -b "//div[@class='page-links']/span[contains(@class, 'current')]/following-sibling::a"
+
+# Copper Coins 铜钱龛世
+# use all_p = soup.find_all(['p', 'h1', 'h2'])
+python scraper.py https://tongqiankanshi.blogspot.com/2021/08/revised-tl-1-tong-qian-kan-shi-copper.html "Copper Coins_铜钱龛世_huziyi.txt" "//div[contains(@class, 'entry-content')]"
+
+# 逐王 The Blood Crown
+python scraper.py https://zhuwangsqc.blogspot.com/2021/03/chapter-1.html The Blood Crown_逐王_1-46_[Ongoing_1-343+11]_NO_TOOLTIPS_Ari.txt" "//div[contains(@class,'entry-content')]" -head "//h3[contains(@class, 'entry-title')]" -b "//a[contains(text(), 'Next') or span[contains(text(), 'Next')]]"
+
+# Wu Chang Jie
+python scraper.py https://wuchangjie.blogspot.com/2021/02/preface.html "Impermanence_无常劫_0-21_proofread_22-29_missing_30-280_draft_NO_TOOLTIPS_Ari.txt"  "//div[contains(@class,'entry-content')]" -head "//h3[contains(@class, 'entry-title')]" -b "//a[contains(text(), 'Next') or span[contains(text(), 'Next')]]"
+python scraper.py https://wuchangjie.blogspot.com/2021/02/chapter-30.html "Impermanence_无常劫_0-21_proofread_22-29_missing_30-280_draft_NO_TOOLTIPS_Ari.txt"  "//div[contains(@class,'entry-content')]" -head "//h3[contains(@class, 'entry-title')]" -b "//a[contains(text(), 'Next') or span[contains(text(), 'Next')]]"
 
 
 ######################
@@ -38,6 +71,7 @@ python scraper.py http://edanglarstranslations.com/ts/55 "太岁_ch1-91_[ONGOING
 ### Ongoing ###
 # Joyful Reunion
 # Saye
+# Zhao Ge
 
 ### Completed ###
 # Imperial Uncle
@@ -48,35 +82,32 @@ python scraper.py http://edanglarstranslations.com/ts/55 "太岁_ch1-91_[ONGOING
 ################################################################
 
 # Qiang Jin Jiu
-#python scraper.py https://cangji.net/qiangjinjiu/qiangjinjiu-c1/ 将进酒_ch1-168ongoing_Lianyin.txt "//div[@class = 'post-entry']" -head "//h1" -b "(//div[@class='post-entry']//a[img])[last()-1]"
-python scraper.py https://cangji.net/qiangjinjiu/qiangjinjiu-c169/ 将进酒_ch1-168ongoing_Lianyin.txt "//div[@class = 'post-entry']" -head "//h1" -b "(//div[@class='post-entry']//a[img])[last()-1]"
-
-#2013 Doomsday (Fei Tian Ye Xiang)
-python scraper.py https://www.chickengege.org/translations/doomsday/doomsday-1/ "星盘重启_ch1-30[ongoing73]_cael_(Chicken_Gege)_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
+#python scraper.py https://cangji.net/qiangjinjiu/qiangjinjiu-c1/ "Qiang Jin Jiu_将进酒_ch1-182_total_282_Lianyin.txt" //div[contains(@class, 'entry-content')]" -head "//h1" -b "//a[img[contains(@src,'navnext')]]"
+python scraper.py https://cangji.net/qiangjinjiu/qiangjinjiu-c183/ "Qiang Jin Jiu_将进酒_ch1-182_total_282_Lianyin.txt" "//div[contains(@class, 'entry-content')]" -head "//h1" -b "//a[img[contains(@src,'navnext')]]"
 
 # The Spring of Prince Syndrome (Fei Tian Ye Xiang)
-python scraper.py https://www.chickengege.org/translations/wangzi/wangzi-0/ "王子病的春天_ch1-13[ongoing_total_60]_Kapsoura_(Chicken_Gege)_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://www.chickengege.org/translations/wangzi/wangzi-0/ "The Spring of Prince Syndrome_王子病的春天_ch1-13[ongoing_total_60]_Kapsoura_(Chicken_Gege).txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # Twin Jades of Jiangdong (Fei Tian Ye Xiang)
-python scraper.py https://www.chickengege.org/translations/shuangbi/shuangbi-1/ "江东双璧_ch1-7[ongoing_total_40]_cytoplasm_moon_(Chicken_Gege)_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://www.chickengege.org/translations/shuangbi/shuangbi-1/ "Twin Jades of Jiangdong_江东双璧_ch1-10[ongoing_total_40]_cytoplasm_moon_(Chicken_Gege).txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # Let Go of that Shou  (Fei Tian Ye Xiang)
-python scraper.py https://www.chickengege.org/translations/fangshou/fangshou-1/ "放开那个受_ch1-20[ongoing_total_40]_ruini_(Chicken_Gege)_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://www.chickengege.org/translations/fangshou/fangshou-1/ "Let Go of that Shou_放开那个受_ch1-20[ongoing_total_40]_ruini_(Chicken_Gege).txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # Post Training Notice: National First-Class Registered Exorcist  (Fei Tian Ye Xiang)
-python scraper.py https://www.chickengege.org/translations/mingwang/mingwang-1/ "明王幻世录_ch1-14[ongoing_total_144]_juurensha_moon_(Chicken_Gege)_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://www.chickengege.org/translations/mingwang/mingwang-1/ "Post Training Notice National First-Class Registered Exorcist_明王幻世录_ch1-14[ongoing_total_144]_juurensha_moon_(Chicken_Gege).txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # Turing's Code (Fei Tian Ye Xiang)
-python scraper.py https://www.chickengege.org/translations/turing/turing-1/ "图灵密码_ch1-54[ongoing_total_83]_eggy_joyce_(Chicken_Gege)_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://www.chickengege.org/translations/turing/turing-1/ "Turing's Code_图灵密码_ch1-54[ongoing_total_83]_eggy_joyce_(Chicken_Gege).txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # Yingnu  (Fei Tian Ye Xiang) (No Translator's Notes)
-python scraper.py https://www.chickengege.org/translations/yingnu/yingnu-1/ 鹰奴_ch1-36[ongoing_total_77]_Elestrea_moon_(Chicken_Gege)_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://www.chickengege.org/translations/yingnu/yingnu-1/ Yingnu_鹰奴_ch1-36[ongoing_total_77]_Elestrea_moon_(Chicken_Gege).txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # Dinghai Fusheng Lu (Fei Tian Ye Xiang)
-python scraper.py https://www.chickengege.org/translations/dinghai/dinghai-1/ "定海浮生录_ch1-106[ongoing_total_106]_Elestrea_moon_(Chicken_Gege)_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://www.chickengege.org/translations/dinghai/dinghai-1/ "Dinghai Fusheng Lu_定海浮生录_ch1-106[ongoing_total_106]_Elestrea_moon_(Chicken_Gege).txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # Tianbao Fuyao Lu (Fei Tian Ye Xiang)
-python scraper.py https://www.chickengege.org/translations/tianbao/tianbao-1/ "天宝伏妖录_ch1-68[ongoing_total_221]_moon_(Chicken_Gege)_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://www.chickengege.org/translations/tianbao/tianbao-1/ "Tianbao Fuyao Lu_天宝伏妖录_ch1-68[ongoing_total_221]_moon_(Chicken_Gege).txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 
 ########################################
@@ -84,19 +115,31 @@ python scraper.py https://www.chickengege.org/translations/tianbao/tianbao-1/ "�
 ########################################
 
 # Those Years in Quest of Honor Mine
-python scraper.py https://perpetualdaydreams.com/novel/tyqhm/tyqhm-1/ "当年万里觅封侯_ch104+2extras_Sleepchaser_(Perpetual_Daydreams)_plaintext.txt" "//div[contains(@class, 'post-content')]" -b '//a[text() ="NEXT>"]' -head "//h1"
+python scraper.py https://perpetualdaydreams.com/novel/tyqhm/tyqhm-1/ "Those Years in Quest of Honor Mine_当年万里觅封侯_ch104+2extras_Sleepchaser_(Perpetual_Daydreams)_plaintext.txt" "//div[contains(@class, 'post-content')]" -b '//a[text() ="NEXT>"]' -head "//h1"
 
-# Fei Pin Ying Qiang
-python scraper.py https://perpetualdaydreams.com/novel/fpyq/fpyq-1 "妃嫔媵嬙_ch1-76+1extra_perpetual_daydreams_NOTRANSLATORSNOTES_plaintext.txt" "//div[contains(@class, 'post-content')]" -b '//a[text() ="NEXT>"]' -head "//h1"
+# The Promotional Record of a Male Consort / Fei Pin Ying Qiang
+python scraper.py https://perpetualdaydreams.com/novel/fpyq/fpyq-1 "The Promotional Record of a Male Consort_妃嫔媵嬙_ch1-76+1extra_perpetual_daydreams_NOTRANSLATORSNOTES.txt" "//div[contains(@class, 'post-content')]" -b '//a[text() ="NEXT>"]' -head "//h1"
 
 # Jin Se (Chrysanthenmum Garden)
-python scraper.py https://chrysanthemumgarden.com/novel-tl/js/js-8/ "锦瑟_ch8-79[end]+2extras_halfdeadhulijing(Crysanthemum Garden)_plaintext.txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+python scraper.py https://chrysanthemumgarden.com/novel-tl/js/js-8/ "Jin Se_锦瑟_ch8-79[end]+2extras_halfdeadhulijing(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+
+# After Our Divorce, I Still Wore Your Jacket
+python scraper.py https://chrysanthemumgarden.com/novel-tl/divorce/divorce-1/ "After Our Divorce, I Still Wore Your Jacket_离婚之后我还穿着你的外套_JP(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+
+# New Times, New Hell
+python scraper.py https://chrysanthemumgarden.com/novel-tl/ntnh/ntnh-1/ "New Times, New Hell_新时代，新地府_JP(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+
+# Peach Blossom Debt
+python scraper.py https://chrysanthemumgarden.com/novel-tl/pbd/pbd-1/ "Peach Blossom Debt_桃花债_Padam_Rose(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+
+# PUBG Online Romance of the Century
+python scraper.py https://chrysanthemumgarden.com/novel-tl/pubg/pubg-1/ "PUBG Online Romance of the Century_PUBG世纪网恋_juurensha(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
 # Seizing Dreams
-python scraper.py https://www.chickengege.org/translations/duomeng/duomeng-1/ "夺梦_ch1-165[end]_Zryuu_(Chicken_Gege)_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://www.chickengege.org/translations/duomeng/duomeng-1/ "Seizing Dreams_夺梦_ch1-165[end]_Zryuu_(Chicken_Gege).txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # Astrolabe Rebirth
-python scraper.py https://www.chickengege.org/translations/astrolabe/astrolabe-1/ "星盘重启_ch1-19[end]_moon_(Chicken_Gege)_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://www.chickengege.org/translations/astrolabe/astrolabe-1/ "Astrolabe Rebirth_星盘重启_ch1-19[end]_moon_(Chicken_Gege).txt" "//div[contains(@class, 'entry-content')][p]" -b "//a[contains(@class, 'next')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 
 ###################################
@@ -104,48 +147,89 @@ python scraper.py https://www.chickengege.org/translations/astrolabe/astrolabe-1
 ###################################
 
 # faraway wanderers (Priest)
-python scraper.py https://sparklingwatertrans.wordpress.com/2018/11/23/faraway-wanderers-chapter-1 "天涯客_ch1-30_plaintext.txt" "//div[contains(@class, 'entry-content')]" -b '//a[text() = "Next Chapter"]'
-python scraper.py https://sparklingwatertrans.wordpress.com/2019/04/08/faraway-wanderers-chapter-21 "天涯客_ch1-30_plaintext.txt" "//div[contains(@class, 'entry-content')]" -b '//a[text() = "Next Chapter"]'
+python scraper.py https://sparklingwatertrans.wordpress.com/2018/11/23/faraway-wanderers-chapter-1 "Faraway Wanderers_天涯客_ch1-30t.txt" "//div[contains(@class, 'entry-content')]" -b '//a[text() = "Next Chapter"]'
+python scraper.py https://sparklingwatertrans.wordpress.com/2019/04/08/faraway-wanderers-chapter-21 "Faraway Wanderers_天涯客_ch1-30.txt" "//div[contains(@class, 'entry-content')]" -b '//a[text() = "Next Chapter"]'
 
 # qian qiu (Meng Xi Shi)
 # For SassyStrawberry Peerless Crossover extra, use soup.find_all(['p', 'h2'])
-python scraper.py https://snowycodex.com/translations/novels/ta/chapter-1 "千秋_ch1-69_Snowy_Codex_plaintext.txt" "//div[contains(@class, 'entry-content')]" -b '//a[text() = "Next Chapter"]' -head "//h2"
-python scraper.py https://qianqiunoveltranslation.wordpress.com/2021/05/17/chapter-91/ "千秋_ch91-128_Superglue_plaintext.txt" "//div[contains(@class, 'entry-content')]" -b '//a[@rel="next"]' -head "//h1"
-python scraper.py https://sassystrawberrytranslates.wordpress.com/2021/08/17/thousand-autumns-extra-1/ "千秋_extras_SassyStrawberry.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
-python scraper.py https://sassystrawberrytranslates.wordpress.com/2021/08/17/thousand-autumns-extras-11/ "千秋_extras_SassyStrawberry.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
-python scraper.py https://sassystrawberrytranslates.wordpress.com/2021/08/22/thousand-autumns-little-extra-1/ "千秋_extras_SassyStrawberry.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
-python scraper.py https://sassystrawberrytranslates.wordpress.com/2021/08/20/thousand-autumns-little-extra-2/ "千秋_extras_SassyStrawberry.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
-python scraper.py https://sassystrawberrytranslates.wordpress.com/2021/08/26/weibo-post-regarding-shen-qiao-and-yan-wushis-date-of-birth/ "千秋_extras_SassyStrawberry.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
+python scraper.py https://snowycodex.com/translations/novels/ta/chapter-1 "Thousand Autumns_千秋_ch1-69_Snowy_Codex_plaintext.txt" "//div[contains(@class, 'entry-content')]" -b '//a[text() = "Next Chapter"]' -head "//h2"
+python scraper.py https://qianqiunoveltranslation.wordpress.com/2021/05/17/chapter-91/ "Thousand Autumns_千秋_ch91-128_Superglue_plaintext.txt" "//div[contains(@class, 'entry-content')]" -b "//a[@rel='next']" -head "//h1"
+python scraper.py https://sassystrawberrytranslates.wordpress.com/2021/08/17/thousand-autumns-extra-1/ "Thousand Autumns_千秋_extras_SassyStrawberry.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
+python scraper.py https://sassystrawberrytranslates.wordpress.com/2021/08/17/thousand-autumns-extras-11/ "Thousand Autumns_千秋_extras_SassyStrawberry.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
+python scraper.py https://sassystrawberrytranslates.wordpress.com/2021/08/22/thousand-autumns-little-extra-1/ "Thousand Autumns_千秋_extras_SassyStrawberry.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
+python scraper.py https://sassystrawberrytranslates.wordpress.com/2021/08/20/thousand-autumns-little-extra-2/ "Thousand Autumns_千秋_extras_SassyStrawberry.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
+python scraper.py https://sassystrawberrytranslates.wordpress.com/2021/08/26/weibo-post-regarding-shen-qiao-and-yan-wushis-date-of-birth/ "Thousand Autumns_千秋_extras_SassyStrawberry.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
+python scraper.py https://sassystrawberrytranslates.wordpress.com/2021/09/22/translation-of-a-fan-asking-mxs-about-sqs-daily-life/ "Thousand Autumns_千秋_extras_SassyStrawberry.txt" "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']"
 
-
-# Wushuang (Note: If redo, use buttonless option) (Note: If redo, use buttonless option)
-python scraper.py https://dustbunnytranslations.wordpress.com/2020/01/08/wushuang-chapter-79/ "无双_dust_bunny_translations_plaintext.txt" "//div[contains(@class, 'entry-content')]" -b '(//article/div[@class="entry-content"]/p/a[last()])[last()]' -head "//h1[@class='entry-title']/a"
+# Peerless Wushuang (Note: If redo, use buttonless option) (Note: If redo, use buttonless option)
+python scraper.py https://dustbunnytranslations.wordpress.com/2020/01/08/wushuang-chapter-79/ "Peerless_无双_dust_bunny_translations.txt" "//div[contains(@class, 'entry-content')]" -b '(//article/div[@class="entry-content"]/p/a[last()])[last()]' -head "//h1[@class='entry-title']/a"
 
 # Sha Po Lang  (Priest) #Note: Next button links are broken
-python scraper.py https://www.northwestflower.net/sha-po-lang/prologue "杀破狼_northwestflower_plaintext.txt" "(//div[@class='tyJCtd mGzaTb baZpAe'])[2]" -b '(//a[@class="FKF6mc TpQm9d QmpIrf" or @class="FKF6mc TpQm9d xkUom"])[last()]' -head "(//div[@class='tyJCtd mGzaTb baZpAe'])[1]"
-python scraper.py https://www.northwestflower.net/sha-po-lang/extras "杀破狼_northwestflower_plaintext.txt" "(//div[@class='tyJCtd mGzaTb baZpAe'])[2]" -b '(//a[@class="FKF6mc TpQm9d QmpIrf" or @class="FKF6mc TpQm9d xkUom"])[last()]' -head "(//div[@class='tyJCtd mGzaTb baZpAe'])[1]"
+python scraper.py https://www.northwestflower.net/sha-po-lang/prologue "杀破狼_northwestflower.txt" "(//div[@class='tyJCtd mGzaTb baZpAe'])[2]" -b '(//a[@class="FKF6mc TpQm9d QmpIrf" or @class="FKF6mc TpQm9d xkUom"])[last()]' -head "(//div[@class='tyJCtd mGzaTb baZpAe'])[1]"
+python scraper.py https://www.northwestflower.net/sha-po-lang/extras "杀破狼_northwestflower.txt" "(//div[@class='tyJCtd mGzaTb baZpAe'])[2]" -b '(//a[@class="FKF6mc TpQm9d QmpIrf" or @class="FKF6mc TpQm9d xkUom"])[last()]' -head "(//div[@class='tyJCtd mGzaTb baZpAe'])[1]"
 
 # Liu Yao (Priest)
-# ch v1c1-v1c8 Nanming, ch v1c9 Blob Translations, ch 34-68 Pizzilations
-python scraper.py https://nanming.wordpress.com/2017/09/23/liuyaov1c1/ "六爻_ch1-8_nanming_ch9-33_blobtranslations_ch34-68_piizzilations_plaintext.txt" "//div[@class='entry-content']" -b "//a[@rel='next']" -head "//h1"
-python scraper.py https://www.blobtranslations.com/liu-yao-the-revitalization-of-fuyao-sect/volume-%E2%85%A0-chapter-9/ "六爻_ch1-8_nanming_ch9-33_blobtranslations_ch34-68_piizzilations_plaintext.txt" "//div[@class='entry-content']" -b "//a[text()= ' [Next Chapter]']" -head "//h1"
-python scraper.py https://pizzilations.com/liu-yao-chapter-34/ "六爻_ch1-8_nanming_ch9-33_blobtranslations_ch34-68_piizzilations_plaintext.txt" "//div[@class='entry-content']" -b "//a[text() = 'Next →']" -head "//h1"
+# ch v1c1-v1c8 Nanming, ch v1c9 Blob Translations, ch 34-72 Pizzilations
+python scraper.py https://nanming.wordpress.com/2017/09/23/liuyaov1c1/ "Liu Yao_六爻_ch1-8_nanming_ch9-33_blobtranslations_ch34-72_pizzilations.txt" "//div[@class='entry-content']" -b "//a[@rel='next']" -head "//h1"
+python scraper.py https://www.blobtranslations.com/liu-yao-the-revitalization-of-fuyao-sect/volume-%E2%85%A0-chapter-9/ "Liu Yao_六爻_ch1-8_nanming_ch9-33_blobtranslations_ch34-72_pizzilations.txt" "//div[@class='entry-content']" -b "//a[text()= ' [Next Chapter]']" -head "//h1"
+python scraper.py https://pizzilations.com/liu-yao-chapter-34/ "Liu Yao_六爻_ch1-8_nanming_ch9-33_blobtranslations_ch34-72_pizzilations.txt" "//div[@class='entry-content']" -b "//a[text() = 'Next →']" -head "//h1"
+
 # ch 68-85, Rustycol
-python scraper.py https://rustycol.dreamwidth.org/951.html "六爻_ch34-68_rustycol_raw_plaintext.txt" "//div[@class='entry-content']" -b"//a[img [@alt='Next Entry']]" -head "(//a[@title])[1]"
+python scraper.py https://rustycol.dreamwidth.org/951.html "Liu Yao_六爻_ch34-68_rustycol_raw_plaintext.txt" "//div[@class='entry-content']" -b"//a[img [@alt='Next Entry']]" -head "(//a[@title])[1]"
 # ch 85-109 Chichi
-python scraper.py https://chichilations.home.blog/2021/03/22/ly-85/ "六爻_ch85-109_chichi_raw_plaintext.txt" "//div[@class='entry-content']" -b "//a[ text()='Next']" -head "//h1[@class='entry-title']"
+python scraper.py https://chichilations.home.blog/2021/03/22/ly-85/ "Liu Yao_六爻_ch85-109_chichi_raw_plaintext.txt" "//div[@class='entry-content']" -b "//a[ text()='Next']" -head "//h1[@class='entry-title']"
 
 #无污染、无公害 (Priest)
-python scraper.py https://sites.google.com/view/npnph-tl/book-one/prologue "无污染、无公害_ch1-116+3_chai_translations_plaintext.txt" "/html/body/div[1]/div/div[2]/div[2]" -b "//a[div/p[text()='Next chapter' or text()='Extras' or text()='More']]" -head  "//h2"
-python scraper.py https://sites.google.com/view/npnph-tl/extras/print-extras/csz-extra-1 "无污染、无公害_ch1-116+3_chai_translations_plaintext.txt" "/html/body/div[1]/div/div[2]/div[2]" -b "//a[div/p[text()='Next chapter' or text()='Extras' or text()='More']]" -head  "//h2"
-python scraper.py https://sites.google.com/view/npnph-tl/extras/interview "无污染、无公害_ch1-116+3_chai_translations_plaintext.txt" "/html/body/div[1]/div/div[2]/div[2]" -b "//a[div/p[text()='Next chapter' or text()='Extras' or text()='More']]" -head  "//h2"
+python scraper.py https://sites.google.com/view/npnph-tl/book-one/prologue "No Pollution, No Public Harm_无污染、无公害_ch1-116+3_chai_translations_plaintext.txt" "/html/body/div[1]/div/div[2]/div[2]" -b "//a[div/p[text()='Next chapter' or text()='Extras' or text()='More']]" -head  "//h2"
+python scraper.py https://sites.google.com/view/npnph-tl/extras/print-extras/csz-extra-1 "No Pollution, No Public Harm_无污染、无公害_ch1-116+3_chai_translations_plaintext.txt" "/html/body/div[1]/div/div[2]/div[2]" -b "//a[div/p[text()='Next chapter' or text()='Extras' or text()='More']]" -head  "//h2"
+python scraper.py https://sites.google.com/view/npnph-tl/extras/interview "No Pollution, No Public Harm_无污染、无公害_ch1-116+3_chai_translations_plaintext.txt" "/html/body/div[1]/div/div[2]/div[2]" -b "//a[div/p[text()='Next chapter' or text()='Extras' or text()='More']]" -head  "//h2"
+
+# An Accident in Board Daylight
+python scraper.py https://sites.google.com/view/brsg/home/prologue "An Accident in Board Daylight_白日事故_ch1-65+1_chai_translations.txt" "/html/body/div[1]/div/div[2]/div[2]" -b "//a[div/p[text()='Next chapter' or text()='Extras' or text()='More']]" -head  "//h2"
+
+# Crushing Jade and Casting Pearls
+python scraper.py https://sites.google.com/view/xiyangfanyi/sytz-crushing-jade-and-casting-pearls/chapter-1 "Crushing Jade and Casting Pearls_碎玉投珠_ch1-66+5_Xiyang.txt" "//div[p/span[contains(text(), 'Chapter')]]"
+python scraper.py https://sites.google.com/view/xiyangfanyi/sytz-crushing-jade-and-casting-pearls/chapter-2 "Crushing Jade and Casting Pearls_碎玉投珠_ch1-66+5_Xiyang.txt" "//div[p/span[contains(text(), 'Chapter')]]" -b "(//a[contains(@class, 'FKF6mc TpQm9d QmpIrf')])[2]"
+python scraper.py https://sites.google.com/view/xiyangfanyi/sytz-crushing-jade-and-casting-pearls/extras/carefree-and-innocent-we-children-twain-extra-2 "Crushing Jade and Casting Pearls_碎玉投珠_ch1-66+5_Xiyang.txt" "//div[p/span[contains(text(), 'Chapter')]]" -head "//div[@class='tyJCtd mGzaTb baZpAe lkHyyc']"
+python scraper.py https://sites.google.com/view/xiyangfanyi/sytz-crushing-jade-and-casting-pearls/extras/extra-1 "Crushing Jade and Casting Pearls_碎玉投珠_ch1-66+5_Xiyang.txt" "//div[p/span[contains(text(), 'Chapter')]]"
+python scraper.py https://sites.google.com/view/xiyangfanyi/sytz-crushing-jade-and-casting-pearls/extras/extra-2 "Crushing Jade and Casting Pearls_碎玉投珠_ch1-66+5_Xiyang.txt" "//div[p/span[contains(text(), 'Chapter') or contains(text(), 'Extra')]]" -b "(//a[contains(@class, 'FKF6mc TpQm9d QmpIrf')])[2]"
+
+# The People Who’re Suppose to Kill Me All Fell for Me Instead # use: all_p = soup.find_all(['p', 'div'])
+python scraper.py https://dummynovels.com/novel/the-people-whore-suppose-to-kill-me-all-fell-for-me-instead/chapter-1 "The People Who’re Suppose to Kill Me All Fell for Me Instead_说好要杀我的人都看上我了[快穿]_ch1-119+6_Vivi_Kyo(Dummy_Novels).txt" "//div[contains(@class, 'elementor-widget-container')][p]" -head "//h1[contains(@class, 'chapter-heading')]" -b "//div[contains(@class, 'chapter-nav-next')]/a"
+python scraper.py https://dummynovels.com/novel/the-people-whore-suppose-to-kill-me-all-fell-for-me-instead/chapter-7-1 "The People Who’re Suppose to Kill Me All Fell for Me Instead_说好要杀我的人都看上我了[快穿]_ch1-119+6_Vivi_Kyo(Dummy_Novels).txt" "//div[contains(@class, 'elementor-widget-container')][p]" -head "//h1[contains(@class, 'chapter-heading')]" -b "//div[contains(@class, 'chapter-nav-next')]/a"
+
+# Paper Lover # use: all_p = soup.find_all(['p', 'div'])
+python scraper.py https://dummynovels.com/novel/paper-lover/chapter-1/ "Paper Lover_纸片恋人_ch1-119+6_Cloudout(Dummy_Novels).txt" "//div[contains(@class, 'elementor-widget-container')][p/span]" -head "//h1[contains(@class, 'chapter-heading')]" -b "//div[contains(@class, 'chapter-nav-next')]/a"
+
+# Pastel Colors
+python scraper.py https://dummynovels.com/novel/pastel-colours/chapter-1 "Pastel Colors_淡彩_ch1-42+12_oden(Dummy_Novels).txt" "//div[contains(@class, 'elementor-widget-container')][p]" -head "//h1[contains(@class, 'chapter-heading')]" -b "//div[contains(@class, 'chapter-nav-next')]/a"
+
 
 # 这锅我不背 I'm Not Shouldering This Blame
-python scraper.py https://rainbow-reads.com/stb-index/stb-chapter-1/ "这锅我不背_ch1-12_Rainbow_Turtle_Translations_plaintext.txt" "//div[@class='entry-content']" -b "//a[text()='Next Chapter']" -head "//h1[@class='entry-title']"
-python scraper.py https://pickupnovels.com/im-not-shouldering-this-blame/chapter-13-dumbfounded-circle/ "这锅我不背_ch13-175_Chas_Spoilerish_Translations_plaintext.txt" "//div[@class='entry-content']" -b "//div[@class='wp-post-navigation-next']/a" -head "//h1[@class='entry-title']"
+python scraper.py https://rainbow-reads.com/stb-index/stb-chapter-1/ "I'm Not Shouldering This Blame_这锅我不背_ch1-12_Rainbow_Turtle_Translations_plaintext.txt" "//div[@class='entry-content']" -b "//a[text()='Next Chapter']" -head "//h1[@class='entry-title']"
+python scraper.py https://pickupnovels.com/im-not-shouldering-this-blame/chapter-13-dumbfounded-circle/ "I'm Not Shouldering This Blame_这锅我不背_ch13-175_Chas_Spoilerish_Translations_plaintext.txt" "//div[@class='entry-content']" -b "//div[@class='wp-post-navigation-next']/a" -head "//h1[@class='entry-title']"
 
-# 某某 Mou Mou
-python scraper.py https://sites.google.com/view/qingtranslates/contents-page/001 "某某_ch1-112+3_qingtranslates_plaintext" "//div[p[@dir='ltr']]" -b "(//a/div/p[contains(text(), 'Afternote') or contains(text(), 'Extra') or contains(text(), 'Next')])[last()]" -head "//h1"
+# 灵异片演员app Supernatural Movie Actor App
+python scraper.py https://rainbow-reads.com/app-toc/app-chapter-1/ "Supernatural Movie Actor App_灵异片演员app_ch1-179+5_Rainbow_Turtle_Translations.txt" "//div[@class='entry-content']" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
+
+# Game Loading
+python scraper.py https://rainbow-reads.com/gl-index/gl-chapter-1/ "Game Loading_游戏加载中_ch1-304+5_Rainbow_Turtle_Translations.txt" "//div[@class='entry-content']" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
+
+# My Husband is Suffering from a Terminal Illness
+python scraper.py https://rainbow-reads.com/hti-toc/hti-chapter-1/ "My Husband is Suffering from a Terminal Illness_老攻身患绝症[穿书]_ch1-171+4_Rainbow_Turtle_Translations.txt" "//div[@class='entry-content']" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
+
+# 重生超模 Rebirth of a Supermodel
+python scraper.py https://rainbow-reads.com/rs-index/rs-chapter-1/ "Rebirth of a Supermodel_重生超模_ch1-237_Rainbow_Turtle_Translations.txt" "//div[@class='entry-content']" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'Next')]"
+python scraper.py https://lolimelonmtl.wordpress.com/rs-e3-chapter1/ "Rebirth of a Supermodel_重生超模_ch237-244_lolimelon.txt" "//div[@class='entry-content']" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'next')]"
+#Final extra here: https://danmeiextra.home.blog/rs-chapter-237/
+
+# Devil Venerable Also Wants to Know
+python scraper.py https://mourningcrow.wordpress.com/2021/06/25/chapter-1-devil-venerable-also-wants-to-know/ "Devil Venerable Also Wants to Know_魔尊也想知道_mourningcrow.txt" "//div[@class='entry-content']" -b "//a[contains(text(), 'Next')]"
+python scraper.py https://mourningcrow.wordpress.com/2021/10/17/chapter-80-devil-venerable-also-wants-to-know/ "Devil Venerable Also Wants to Know_魔尊也想知道_1-79[80+2]_mourningcrow.txt" "//div[@class='entry-content']" -b "//a[contains(text(), 'Next')]"
+
+
+# 某某 Mou Mou A Certain Someone
+python scraper.py https://sites.google.com/view/qingtranslates/contents-page/001 "A Certain Someone_某某_ch1-112+3_qingtranslates_plaintext" "//div[p[@dir='ltr']]" -b "(//a/div/p[contains(text(), 'Afternote') or contains(text(), 'Extra') or contains(text(), 'Next')])[last()]" -head "//h1"
 
 # Is the Gentleman Feeling Alright?  (Note: If redo, use buttonless option)
 python scraper.py https://dustbunnytranslations.wordpress.com/2020/06/09/jyjf-chapter-1/ "君有疾否_dust_bunny_translations_plaintext.txt" "//article/div[@class='entry-content']" -head "//h1[@class='entry-title']/a"
@@ -154,108 +238,240 @@ python scraper.py https://dustbunnytranslations.wordpress.com/2020/06/09/jyjf-ch
 python scraper.py https://uheitranslations.wordpress.com/2021/07/24/to-rule-in-a-turbulent-world-mid-autumn-extra-2/ "乱世为王_extra2_[ongoing_total_8]_uhei_plaintext.txt" "//div[@class='entry-content']" -b "//a[span[contains (text(), 'Next')]]" -head "//h1[contains(@class, 'entry-title')]"
 
 # The God-Like Jade Rabbit
-python scraper.py https://theresanother.wordpress.com/2018/12/20/the-godlike-jade-rabbit-chapter-1/ "超神玉兔_ch1-76+3_12_plaintext.txt" "//div[contains(@class, 'entry-content')][p]" -b "(//a[contains(text(), 'Next') or contains(text(), 'Epilogue')])[last()]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://theresanother.wordpress.com/2018/12/20/the-godlike-jade-rabbit-chapter-1/ "The God-like Jade Rabbit_超神玉兔_ch1-76+3_12.txt" "//div[contains(@class, 'entry-content')][p]" -b "(//a[contains(text(), 'Next') or contains(text(), 'Epilogue')])[last()]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # On How to Properly Instruct Old Chinese Doctors to Use Emojis
-python scraper.py https://iristranslations.wordpress.com/2021/03/08/on-how-to-properly-instruct-old-chinese-doctors-to-use-emojis-chapter-1/ "论如何正确指导老中医使用表情包_ch1-95+1_iristranslations.txt" "//div[@class='entry-content']" -b "//a[@rel='next']"
+python scraper.py https://iristranslations.wordpress.com/2021/03/08/on-how-to-properly-instruct-old-chinese-doctors-to-use-emojis-chapter-1/ "On How to Properly Instruct Old Chinese Doctors to Use Emojis_论如何正确指导老中医使用表情包_ch1-95+1_iristranslations.txt" "//div[@class='entry-content']" -b "//a[@rel='next']"
 
 # Chen Ruobing and I
-python scraper.py https://iristranslations.wordpress.com/2021/06/30/chen-ruobing-and-i-chapter-1/ "我和陈若冰_ch1-20+1_iristranslations.txt" "//div[@class='entry-content']" -b "//a[@rel='next']"
+python scraper.py https://iristranslations.wordpress.com/2021/06/30/chen-ruobing-and-i-chapter-1/ "Chen Ruobing and I_我和陈若冰_ch1-20+1_iristranslations.txt" "//div[@class='entry-content']" -b "//a[@rel='next']"
 
 # Neighbors
-python scraper.py https://iristranslations.wordpress.com/2021/03/04/neighbors-chapter-1/ "邻居_ch1-13_iristranslations.txt" "//div[@class='entry-content']" -b "//a[@rel='next']"
+python scraper.py https://iristranslations.wordpress.com/2021/03/04/neighbors-chapter-1/ "Neighbors_邻居_ch1-13_iristranslations.txt" "//div[@class='entry-content']" -b "//a[@rel='next']"
 
 # I Ship My Adversary X Me
-python scraper.py https://blackbox-tl.com/novels/ismm/ismm-chapter-1/ "我嗑了对家x我的cp_ch1-40[ongoing_total_70]_blackbox-tl.txt" "//div[@class='entry-content']" -b "//a[contains(text(), 'Next Chapter')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://blackbox-tl.com/novels/ismm/ismm-chapter-1/ "I Ship My Adversary X Me_我嗑了对家x我的cp_ch1-40[ongoing_total_70]_blackbox-tl.txt" "//div[@class='entry-content']" -b "//a[contains(text(), 'Next Chapter')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # 破云 Poyun Breaking Through the Clouds
-python scraper.py https://blackbox-tl.com/novels/bttc/bttc-chapter-1/ "破云_ch1-33[ongoing_total_155+6]_blackbox-tl.txt" "//div[@class='entry-content']" -b "//a[contains(text(), 'Next Chapter')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://blackbox-tl.com/novels/bttc/bttc-chapter-1/ "Poyun_破云_ch1-33[ongoing_total_155+6]_blackbox-tl.txt" "//div[@class='entry-content']" -b "//a[contains(text(), 'Next Chapter')]" -head "//h1[ contains(@class, 'entry-title')]"
+
+# 玻璃心 Heart of Glass
+python scraper.py https://blackbox-tl.com/novels/hog/hog-c0/ "Heart of Glass_玻璃心_ch1-11+2_Yudun(blackbox-tl).txt" "//div[@class='entry-content']" -b "//a[contains(text(), 'Next Chapter')]" -head "//h1[ contains(@class, 'entry-title')]"
+
+# 小白杨 My Little Poplar
+python scraper.py https://blackbox-tl.com/novels/mlp/mlp-chapter-1/ "My Little Poplar_小白杨_ch1-16[ongoing_1-115+4]_AlexPT(blackbox-tl).txt" "//div[@class='entry-content']" -b "//a[contains(text(), 'Next Chapter')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://nottegram.blogspot.com/2021/01/my-little-poplar-chapter-1-dilemma-of.html "My Little Poplar_小白杨_1-115+8_Nottegram.txt" "//div[contains(@class,'entry-content')]" -b "//a[contains(@class, 'blog-pager-newer-link')]"
+
+# 竞剑之锋 Sword Edge
+python scraper.py https://idleturtle-translations.com/2020/01/29/rse-chapter-1/ "Sword Edge_竞剑之锋_1-80+!_IdleTurtle.txt" "//div[@class='post-content']" -b "//a[contains(@rel,'next')]" -head "//h1"
 
 # 坏道 The Way of Evil (priest)
-python scraper.py https://woctranslations.wordpress.com/way-of-the-evil-chapter-1/ "坏道_ch1-94+1_woctranslations.txt" "//div[@class='entry-content']" -b "//a[contains(text(), 'Next Chapter')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://woctranslations.wordpress.com/way-of-the-evil-chapter-1/ "The Way of Evil_坏道_ch1-94+1_woctranslations.txt" "//div[@class='entry-content']" -b "//a[contains(text(), 'Next Chapter')]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # Assistant Archietect
-python scraper.py https://snowynotes.home.blog/2018/12/29/%E5%8A%A9%E7%90%86%E5%BB%BA%E7%AD%91%E5%B8%88-%E7%BE%B2%E5%92%8C%E6%B8%85%E9%9B%B6/ "助理建筑师_ch1-227+9_SnowyNotes.txt" "//div[@class='entry-content']" -b "//a[span[contains(text(), 'Next')]]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://snowynotes.home.blog/2018/12/29/%E5%8A%A9%E7%90%86%E5%BB%BA%E7%AD%91%E5%B8%88-%E7%BE%B2%E5%92%8C%E6%B8%85%E9%9B%B6/ "Assistant Archietect_助理建筑师_ch1-227+9_SnowyNotes.txt" "//div[@class='entry-content']" -b "//a[span[contains(text(), 'Next')]]" -head "//h1[ contains(@class, 'entry-title')]"
 
 # The Perfect Relationship
-python scraper.py https://snowynotes.home.blog/2020/03/13/%e5%ae%8c%e7%be%8e%e5%85%b3%e7%b3%bb-%e7%be%b2%e5%92%8c%e6%b8%85%e9%9b%b6-001/ "完美关系_ch1-32_[total_131]_SnowyNotes.txt" "//div[@class='entry-content']" -b "//a[span[contains(text(), 'Next')]]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://snowynotes.home.blog/2020/03/13/%e5%ae%8c%e7%be%8e%e5%85%b3%e7%b3%bb-%e7%be%b2%e5%92%8c%e6%b8%85%e9%9b%b6-001/ "The Perfect Relationship_完美关系_ch1-32_[total_131]_SnowyNotes.txt" "//div[@class='entry-content']" -b "//a[span[contains(text(), 'Next')]]" -head "//h1[ contains(@class, 'entry-title')]"
+
+# Everyone Thinks That I Like Him
+python scraper.py https://oldmosstree.wordpress.com/everyone-thinks-i-like-him/etilh-01/ "Everyone Thinks That I Like Him_所有人都以为我喜欢他_ch1-70+5_[total_131]_Mosstree.txt" "//div[@class='entry-content']" -b "//a[contains(@rel, 'next') or contains(text(), '>>')] " -head "//h1"
+
+# The Star Around The Sun
+python scraper.py https://gooseberrytl.wordpress.com/2020/05/28/ch-1-the-sun-around-the-star/ "The Star Around The Sun_明日星程_ch1-135+15_Gooseberry.txt" "//div[@class='entry-content']" -b "//a[contains(text(), '⟶')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://gooseberrytl.wordpress.com/2020/06/30/ch-29-the-star-around-the-sun/ "The Star Around The Sun_明日星程_ch1-135+15_Gooseberry.txt" "//div[@class='entry-content']" -b "//a[contains(text(), '⟶')]" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://gooseberrytl.wordpress.com/2020/12/13/ch-102-the-star-around-the-sun/ "The Star Around The Sun_明日星程_ch1-135+15_Gooseberry.txt" "//div[@class='entry-content']" -b "//a[contains(text(), '⟶')]" -head "//h1[ contains(@class, 'entry-title')]"
+
+# Hope You've Been Well
+python scraper.py https://jupitertranslations.wordpress.com/2021/01/24/1-mixed/ "Hope You've Been Well_别来无恙_75_[ongoing_98+1]_TinySaltTranslations.txt"  "//div[contains(@class, 'post-content')]" -head "//h1[contains(@class, 'post-title')]" -b "//a[@rel='next']"
+
+# Kaleidoscope of Death 死亡万花筒
+python scraper.py https://taidatranslations.wordpress.com/kaleidoscope-of-death/kod-chapter-1/ "Kaleidoscope of Death_死亡万花筒_1-62_taida.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[contains(text(),'Next')]"
+python scraper.py https://zintranslations.tumblr.com/post/636196301229506561/kaleidoscope-of-death-ch-63 "Kaleidoscope of Death_死亡万花筒_63-139+9_zin.txt"  "//div[contains(@class, 'entry-content')]" -head "//div/h2" -b "(//a[contains(text(), 'Ch.') or contains(text(), 'Extra')])[last()]"
+python scraper.py https://zintranslations.tumblr.com/post/655494087610400768/kaleidoscope-of-death-print-only-extra-1 "Kaleidoscope of Death_死亡万花筒_63-139+9_zin.txt"  "//div[contains(@class, 'entry-content')]" -head "//div/h2"
+
+# Mint-Stained Shirt 薄荷衬衣
+python scraper.py https://www.78zaotl.com/bhcy01/ "Mint-Stained Shirt_薄荷衬衣_1-82_78zaoTL.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[span[contains(text(),'Next')]]"
+
+# Madness of the Heart 心狂
+python scraper.py https://www.78zaotl.com/xk001/ "Madness of the Heart_心狂_1-108[ongoing_186]_78zaoTL.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[span[contains(text(),'Next')]]"
+python scraper.py https://www.78zaotl.com/xk071/ "Madness of the Heart_心狂_1-108[ongoing_186]_78zaoTL.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[span[contains(text(),'Next')]]"
+
+# I Was Once a Legend 我曾是个传说
+python scraper.py https://xixistranslations.com/i-was-once-a-legend-chapter-1-pure-white-realm/ "I Was Once a Legend_我曾是个传说_Xixistranslations.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//div[contains(@class, 'navi-next')]/a"
+
+# It's Not Easy Being a Master 师尊难为
+python scraper.py https://xixistranslations.com/nebm-chapter-1-waking-up/ "It's Not Easy Being a Master_师尊难为_Xixistranslations.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//div[contains(@class, 'navi-next')]/a"
+
+# 100k Volts Electrocutes You to Death 十万伏特电死你
+python scraper.py https://auroranovels.wordpress.com/2018/12/15/100kv-chapter-1/ "100k Volts Electrocutes You to Death_十万伏特电死你_auroratranslates.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[contains(text(), 'next')]"
+
+# Rebirth of a Movie Star 重生之朗朗星空
+python scraper.py https://whiteskytranslations.wordpress.com/rebirth-of-a-movie-star/roams-chapter-1/ "Rebirth of a Movie Star_重生之朗朗星空_1-61+6_WhiteSkyTranslations.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[contains(text(),'Next')]"
+
+# Cai Cai 猜猜 # Scrape with driver.get_element.text
+python scraper.py https://rosynight.wordpress.com/2020/01/31/cc-chapter-01/ "Cai Cai_猜猜_1-3_RosyNight_4-90_ClosedWindowTranslations.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[contains(text(),'>>')]"
+python scraper.py https://cai-cai-read-online.blogspot.com/2020/07/chapter-4.html "Cai Cai_猜猜_1-3_RosyNight_4-90_ClosedWindowTranslations.txt"  "//div[contains(@class, 'entry-content')]" -head "//h3[contains(@class, 'entry-title')]" -b "//span[contains(text(),'Next')] | //a[contains(text(),'Next')]"
+
+# City of Endless Rain 終雨之城
+python scraper.py http://bltranslation.blogspot.com/2015/09/city-of-endless-rain-ch1.html "City of Endless Rain_終雨之城_1-10+1_Ying(ChineseBLTranslations).txt"  "//div[contains(@class, 'entry-content')]" -head "//title" -b "(//a[contains(text(), 'Chapter ')])[last()]"
+python scraper.py http://bltranslation.blogspot.com/2017/04/city-of-endless-rain-epilogue.html "City of Endless Rain_終雨之城_1-10+1_Ying(ChineseBLTranslations).txt"  "//div[contains(@class, 'entry-content')]" -head "//title"
+
+# Mist
+python scraper.py https://kktranslates.home.blog/2020/11/16/mist-ch1/ "Mist_薄雾_1-103+3_KKTranslates.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[contains(text(),'Table of Contents')]/following-sibling::a"
+
+# To Be a Heartthrob in a Horror Movie
+# Use soup.find_all(['p', 'sup']) for Naeda
+python scraper.py https://naedatranslations.home.blog/tbafiahm-chapter-1/?frame-nonce=e86032898b "To Be a Heartthrob in a Horror Movie_在恐怖片里当万人迷_1-19_Naeda_20-156_KKTranslates.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[contains(text(),'TOC')]/following-sibling::a"
+python scraper.py https://kktranslates.home.blog/2019/11/24/hiahm-ch20/ "To Be a Heartthrob in a Horror Movie_在恐怖片里当万人迷_1-19_Naeda_20-156_KKTranslates.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[contains(text(),'Table of Contents')]/following-sibling::a"
+python scraper.py https://kktranslates.home.blog/hiahm-ch50/ "To Be a Heartthrob in a Horror Movie_在恐怖片里当万人迷_1-19_Naeda_20-156_KKTranslates.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[contains(text(),'Table of Contents')]/following-sibling::a"
+python scraper.py https://kktranslates.home.blog/hiahm-ch87/ "To Be a Heartthrob in a Horror Movie_在恐怖片里当万人迷_1-19_Naeda_20-156_KKTranslates.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]"
+
+# Lovely Allergen 可爱过敏原
+python scraper.py https://kktranslates.home.blog/2020/11/20/lovely-allergen-ch1/ "Lovely Allergen_可爱过敏原_1-5_KKTranslates_6-102+7_AmyTranslations.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[contains(text(),'Table of Contents')]/following-sibling::a"
+python scraper.py https://amytranslations929.wordpress.com/2021/02/13/lovely-allergen-chapter-6/ "Lovely Allergen_可爱过敏原_1-5_KKTranslates_6-102+7_AmyTranslations.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "(//p/a[contains(text(), 'Chapter')])[last()]"
+python scraper.py https://amytranslations929.wordpress.com/2021/09/14/lovely-allergen-extra-1/ "Lovely Allergen_可爱过敏原_1-5_KKTranslates_6-102+7_AmyTranslations.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "(//p/a[contains(text(), 'Extra')])[last()]"
+
+
+# Non-Human Sub-District Office
+python scraper.py https://thepotatoroom.com/novels/nhso/nhso-chapter-1/ "Non-Human Sub-District Office_非人类街道办_1-82+4_ThePotatoRoom.txt"  "//div[contains(@class, 'entry-content')]" -head "//h2[contains(@class, 'entry-title')]" -b "//a[contains(@rel,'next')]"
+
+# I'll Have my Seatmate Beat You 我叫我同桌打你
+python scraper.py https://thatlazypotato.wordpress.com/2021/05/07/ihmsby-chapter-1/ "I'll Have my Seatmate Beat You_我叫我同桌打你_1-66+2_ThatLazyPotatoTranslations.txt" "//div[contains(@class, 'entry-content')]" -b "//a[contains(@rel,'next')]"
+
+# The Last Creator
+python scraper.py https://whitecherrybl.com/2021/02/09/tlc-1/ "The Last Creator_最后一个造物主_WhiteCherryBL.txt" "//section[contains(@class, 'entry')]" -b "//a[text()='Next']" -head "//h1[ contains(@class, 'entry-title')]"
+python scraper.py https://whitecherrybl.com/2021/09/30/tlc-63/ "The Last Creator_最后一个造物主_WhiteCherryBL.txt" "//section[contains(@class, 'entry')]" -b "//a[text()='Next']" -head "//h1[ contains(@class, 'entry-title')]"
+
+#Lawless Gangster
+python scraper.py https://haikushilan.wordpress.com/2017/05/04/lawless-chapter-1/ Lawless_不法之徒_Sae.txt "//div[contains(@class, 'entry-content')]" -head "//h1[@class='entry-title']" -b "//a[contains(text(), 'NEXT')]"
+
+# I Fell in Love with My White Moonlight's Arch-Enemy
+# Use this dict to reverse scrambling: keyMap = dict(zip('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', 'VUQXWSAZKBJNTLEDGIRHCPFOMYrhbndjzvqkiexcwsfpogytumal'))
+python scraper.py https://secondlifetranslations.com/wmae/wmae-chapter-1/ "I Fell in Love with My White Moonlight's Arch-Enemy_我爱上了白月光的死对头_1-11_LittlePotato(SecondLifeTranslations).txt" "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[contains(@rel,'next')]"
+
+# The Rich and Honorable Chang'An
+python scraper.py https://readonlinenovels.com/nv/2e4a49612203d97d/the-rich-and-honorable-changan/60922-h "The Rich and Honorable Chang'An_富贵长安_Bookworm.txt" "//div[contains(@class, 'read-context')]" -head "//h3[contains(@class, 'read-title')]" -b "//a[contains(text(),'Next')]"
+
+# How Many Tomorrows There Are 明日何其多
+python scraper.py https://travistranslations.com/novel/18965/how-many-tomorrows-there-are/chapter-1/ "How Many Tomorrows There Are_明日何其多_boilpoil.txt" "//div[contains(@class, 'reader-content')]" -head "//div[contains(@class, 'header')]" -b "//a[contains(@class, 'next')]"
+
+# Welcome to the Nightmare Game 欢迎来到噩梦游戏
+python scraper.py https://sigmascrib.wordpress.com/2018/02/20/the-first-peoples-hospital-of-x-city-part-1/ "Welcome to the Nightmare Game_欢迎来到噩梦游戏_ch1-41_Taida_ch39-44_DreamPotato_45-137_Quazartranslates.txt"  "//div[contains(@class, 'entry-content')]" -head "//h1" -b "//a[@rel='next']"
+python scraper.py https://www.scribblehub.com/read/160907-welcome-to-the-nightmare-game/chapter/161124/ "Welcome to the Nightmare Game_欢迎来到噩梦游戏_ch1-41_Taida_ch39-44_DreamPotato_45-137_Quazartranslates.txt"  "//div[contains(@class, 'chp_raw')]" -head "//div[contains(@class, 'chapter-title')]" -b "//a[contains(@class, 'btn-next')]"
+python scraper.py https://quazartranslates.tumblr.com/post/635537313657716736/welcome-to-the-nightmare-game-ch45 "Welcome to the Nightmare Game_欢迎来到噩梦游戏_ch1-41_Taida_ch39-44_DreamPotato_45-137_Quazartranslates.txt"  "//div[contains(@class, 'caption')]" -head "//h1" -b "//a[contains(text(),'Next')]"
+
+
+### Exiled Rebels Scanlations ###
+# Use a new window per chapter to avoid IP block
+python scraper.py https://exiledrebelsscanlations.com/ordinary-chapter-1/ "I’m Really Just an Ordinary Person_我真的只是个普通人_Addis(ExiledRebelsScanlations).txt" "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]"
+python scraper.py https://exiledrebelsscanlations.com/st-prologue/ "Sickly Tyrannical_病虐_RuiHun(ExiledRebelsScanlations).txt" "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]"
+python scraper.py https://exiledrebelsscanlations.com/case-files-chapter-1/ "Special Case Files of Rebirth_重生之特别案卷_Vivian(ExiledRebelsScanlations).txt" "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]"
+
+
+### Foxaholic ###
+
+# Your Distance
+python scraper.py https://www.foxaholic.com/novel/your-distance/1/ "Your Distance_你的距离_ch1-90_NO_EXTRAS[3]_ReallyDee(Foxaholic).txt" "//div[contains(@class, 'entry-content')]" -head "//li[@class='active']" -b "//div[contains(@class, 'nav-next ')]/a"
+python scraper.py https://www.foxaholic.com/novel/your-distance/extra-1/ "Your Distance_你的距离_ch1-90+1.5_MISSING_EXTRA_2+3_ReallyDee(Foxaholic).txt" "//div[contains(@class, 'entry-content')]" -head "//li[@class='active']" -b "//div[contains(@class, 'nav-next ')]/a"
+
+
+# How to Survive as a Villain
+python scraper.py https://www.foxaholic.com/novel/how-to-survive-as-a-villain/1/ "How to Survive as a Villain_穿越成反派要如何活命_ch1-210+26_SmollStarks_(Foxaholic).txt" "//div[contains(@class, 'entry-content')]" -head "//li[@class='active']" -b "//div[contains(@class, 'nav-next ')]/a"
+python scraper.py https://www.foxaholic.com/novel/how-to-survive-as-a-villain/222-extra-1-12/ "How to Survive as a Villain_穿越成反派要如何活命_ch1-210+26_SmollStarks_(Foxaholic)_missing_extras.txt" "//div[contains(@class, 'entry-content')]" -head "//li[@class='active']" -b "//div[contains(@class, 'nav-next ')]/a"
+
 
 ### wattpad ###
 
 # Guomen 过门 (Priest)
-python scraper.py https://www.wattpad.com/663800730-through-the-strait-gates-%E8%BF%87%E9%97%A8-guomen-work-by-priest "过门_ch1-18_[total]_69+3_bleachedfish_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -head  "//h1[@class='h2']"
-python scraper.py https://sites.google.com/view/guomentranslation/table-of-contents/chapter-1 "过门_ch1-69+3_chai_translations_plaintext.txt" "/html/body/div[1]/div/div[2]/div[2]" -b "//a[div/p[text()='Next chapter' or text()='Extras']]" -head  "//h2"
+python scraper.py https://www.wattpad.com/663800730-through-the-strait-gates-%E8%BF%87%E9%97%A8-guomen-work-by-priest "Guo Men_过门_ch1-18_[total]_69+3_bleachedfish.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -head  "//h1[@class='h2']"
+python scraper.py https://sites.google.com/view/guomentranslation/table-of-contents/chapter-1 "Guo Men_过门_ch1-69+3_chai_translations.txt" "/html/body/div[1]/div/div[2]/div[2]" -b "//a[div/p[text()='Next chapter' or text()='Extras']]" -head  "//h2"
 
-#Can Ci Pin (Priest)
-python scraper.py https://www.wattpad.com/613294385-can-ci-pin-imperfections-%E6%AE%8B%E6%AC%A1%E5%93%81-bl-by-priest-prelude "殘次品_prologue-ch48_golden_plastic_sisters_raw_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -h "//h1[@class='h2']"
+# The Defective / Can Ci Pin (Priest)
+python scraper.py https://www.wattpad.com/613294385-can-ci-pin-imperfections-%E6%AE%8B%E6%AC%A1%E5%93%81-bl-by-priest-prelude "The Defective_殘次品_prologue-ch48_golden_plastic_sisters.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -h "//h1[@class='h2']"
 
 #Jin Se Wangxianbot ch 1-10
-python scraper.py https://www.wattpad.com/754966819-jin-se-priest-english-fan-translation-bl-novel "锦瑟_ch1-10_wangxianbot_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -h "//h1[@class='h2']"
+python scraper.py https://www.wattpad.com/754966819-jin-se-priest-english-fan-translation-bl-novel "Jin Se_锦瑟_ch1-10_wangxianbot_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -h "//h1[@class='h2']"
 
-#Advance Bravely She Bu Ke
-python scraper.py https://www.wattpad.com/299917904-advance-bravely-shi-bu-ke-dang-%E5%8A%BF%E4%B8%8D%E5%8F%AF%E6%8C%A1-1-kickboxing "势不可挡_ch1-224_@anhnguyen12332_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -h "//h1[@class='h2']"
+# Advance Bravely She Bu Ke
+python scraper.py https://www.wattpad.com/299917904-advance-bravely-shi-bu-ke-dang-%E5%8A%BF%E4%B8%8D%E5%8F%AF%E6%8C%A1-1-kickboxing "Advance Bravely_势不可挡_ch1-224_@anhnguyen12332_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -h "//h1[@class='h2']"
 
 # Winter Begonia
-python scraper.py https://www.wattpad.com/881913184-winter-begonia-bl-ch-1-prologue "鬓边不是海棠红_ch1-73_mianmian2020_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -h "//h1[@class='h2']"
-python scraper.py https://www.wattpad.com/991222767-winter-begonia-updated-chapter-74-part-1 "鬓边不是海棠红_ch74-84_JiaLing2_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -h "//h1[@class='h2']"
+python scraper.py https://www.wattpad.com/881913184-winter-begonia-bl-ch-1-prologue "Winter Begonia_鬓边不是海棠红_ch1-73_mianmian2020_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -h "//h1[@class='h2']"
+python scraper.py https://www.wattpad.com/991222767-winter-begonia-updated-chapter-74-part-1 "Winter Begonia_鬓边不是海棠红_ch74-84_JiaLing2_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -h "//h1[@class='h2']"
 
-#Guardian Extras
-python scraper.py https://www.wattpad.com/616135964-guardian-%E9%95%87%E9%AD%82zhenhun-original-novel-bonus-chapters-1 "镇魂_Extra1-4_Tanyavvvvvv_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -head  "//h1[@class='h2']"
-python scraper.py https://www.wattpad.com/839604740-guardian-zhen-hun-%E9%95%87%E9%AD%82-translation-from-chapter83/page/6 "镇魂_Extra5_DawnMist31_plaintext.txt" "//div[@id='sticky-end']"  -head  "//h1[@class='h2']"
-python scraper.py https://www.wattpad.com/842259066-guardian-zhen-hun-%E9%95%87%E9%AD%82-translation-from-chapter83 "镇魂_Extra5_DawnMist31_plaintext.txt" "//div[@id='sticky-end']" -head  "//h1[@class='h2']"
+# Guardian Extras
+python scraper.py https://www.wattpad.com/616135964-guardian-%E9%95%87%E9%AD%82zhenhun-original-novel-bonus-chapters-1 "Guardian_镇魂_Extra1-4_Tanyavvvvvv_plaintext.txt" "//div[@id='sticky-end']" -b "//a[@aria-label='Continue reading next part']" -head  "//h1[@class='h2']"
+python scraper.py https://www.wattpad.com/839604740-guardian-zhen-hun-%E9%95%87%E9%AD%82-translation-from-chapter83 "Guardian_镇魂_Extra5_DawnMist31_plaintext.txt" "//div[@id='sticky-end']"  -head  "//h1[@class='h2']"
+python scraper.py https://www.wattpad.com/842259066-guardian-zhen-hun-%E9%95%87%E9%AD%82-translation-from-chapter83 "Guardian_镇魂_Extra5_DawnMist31_plaintext.txt" "//div[@id='sticky-end']" -head  "//h1[@class='h2']"
 
+# Thrive in Catastrophe
+python scraper.py https://www.wattpad.com/547217626-thrive-in-catastrophe-by-%E7%84%A6%E7%B3%96%E5%86%AC%E7%93%9C-aftermath "Thrive in Catastrophe_绝处逢生_1-100_dealeigh.txt" "//div[@id='sticky-end']" -head  "//h1[@class='h2']" -b "//a[@aria-label='Continue reading next part']"
 
 ### Chrysanthemum Garden ###
 
-#Peerless Immortals Surronded by Demonic Disciples 道玄
-python scraper.py https://chrysanthemumgarden.com/novel-tl/pisdd/pisdd-1/ "仙君座下尽邪修_SilverRain(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+#2013 Doomsday (Fei Tian Ye Xiang)
+python scraper.py https://chrysanthemumgarden.com/novel-tl/2013/2013-1/ "2013_ch1-70+1[missing_2_extras]_cael_(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+python scraper.py https://chrysanthemumgarden.com/novel-tl/2013/2013-71-2/ "2013_ch1-70+1[missing_2_extras]_cael_(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -head "//span[@class = 'chapter-title'][1]"
 
-# After Our Divorce, I Still Wore Your Jacket
-python scraper.py https://chrysanthemumgarden.com/novel-tl/divorce/divorce-1/ "离婚之后我还穿着你的外套_JP(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
-
-# New Times, New Hell
-python scraper.py https://chrysanthemumgarden.com/novel-tl/ntnh/ntnh-1/ "新时代，新地府_JP(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# Peerless Immortals Surronded by Demonic Disciples 道玄
+python scraper.py https://chrysanthemumgarden.com/novel-tl/pisdd/pisdd-1/ "Peerless Immortals Surronded by Demonic Disciples_仙君座下尽邪修_SilverRain(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
 # FOG
 python scraper.py https://chrysanthemumgarden.com/novel-tl/fog/fog-1/ "FOG_SleepyLittleMushrooms(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
 # Escape the Infinite Chambers
-python scraper.py https://taidatranslations.wordpress.com/eic/chapter-1/ "逃离无限密室_1-36_Taida.txt" "//div[@class = 'entry-content']" -b "//a[contains(text(), 'Next')]" -head "//h1[@class='entry-title']"
-python scraper.py https://chrysanthemumgarden.com/novel-tl/eic/eic-37/ "逃离无限密室_37-201+5_FleurDeLys(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
-python scraper.py https://chrysanthemumgarden.com/novel-tl/eic/eic-38/ "逃离无限密室_37-201+5_FleurDeLys(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+python scraper.py https://taidatranslations.wordpress.com/eic/chapter-1/ "Escape the Infinite Chambers_逃离无限密室_1-36_Taida.txt" "//div[@class = 'entry-content']" -b "//a[contains(text(), 'Next')]" -head "//h1[@class='entry-title']"
+python scraper.py https://chrysanthemumgarden.com/novel-tl/eic/eic-37/ "Escape the Infinite Chambers_逃离无限密室_37-201+5_FleurDeLys(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
-#Peach Blossom Debt
-python scraper.py https://chrysanthemumgarden.com/novel-tl/pbd/pbd-1/ "桃花债_Padam_Rose(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# Stop Bothering Me, Emperor
+python scraper.py https://chrysanthemumgarden.com/novel-tl/sbme/sbme-1/ "Stop Bothering Me, Emperor_皇上别闹_baobaomei(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
-#PUBG Online Romance of the Century
-python scraper.py https://chrysanthemumgarden.com/novel-tl/pubg/pubg-1/ "PUBG世纪网恋_juurensha(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# Who Touched My Tail!
+python scraper.py https://chrysanthemumgarden.com/novel-tl/wtmt/wtmt-1/ "Who Touched My Tail!_谁动了我的尾巴！_xiin(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
-#Stop Bothering Me, Emperor
-python scraper.py https://chrysanthemumgarden.com/novel-tl/sbme/sbme-1/ "皇上别闹_baobaomei(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# Vanguard of the Eternal Night
+python scraper.py https://chrysanthemumgarden.com/novel-tl/ven/ven-1/ "Vanguard of the Eternal Night_永夜之锋_xiin(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
-#Who Touched My Tail!
-python scraper.py https://chrysanthemumgarden.com/novel-tl/wtmt/wtmt-1/ "谁动了我的尾巴！_xiin(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# The White Cat’s Divine Scratching Post
+python scraper.py https://chrysanthemumgarden.com/novel-tl/wcsp/wcsp-1/ "The White Cat’s Divine Scratching Post_神木挠不尽_Cattails_Namizaki(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
-#The White Cat’s Divine Scratching Post
-python scraper.py https://chrysanthemumgarden.com/novel-tl/wcsp/wcsp-1/ "神木挠不尽_Cattails_Namizaki(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# Guide on How to Fail at Online Dating
+python scraper.py https://chrysanthemumgarden.com/novel-tl/ghfod/ghfod-1/ "Guide on How to Fail at Online Dating_网恋翻车指南_zryuu_juurensha(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
-#Guide on How to Fail at Online Dating
-python scraper.py https://chrysanthemumgarden.com/novel-tl/ghfod/ghfod-1/ "网恋翻车指南_zryuu_juurensha(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# Stone Age Husband Raising Journal
+python scraper.py https://chrysanthemumgarden.com/novel-tl/sahrj/sahrj-1/ "Stone Age Husband Raising Journal_史前养夫记_xiin(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
-#Stone Age Husband Raising Journal
-python scraper.py https://chrysanthemumgarden.com/novel-tl/sahrj/sahrj-1/ "史前养夫记_xiin(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# You Use a Gun, I Use a Bow
+python scraper.py https://chrysanthemumgarden.com/novel-tl/bow/bow-1/ "You Use a Gun, I Use a Bow_你们用枪我用弓[电竞]_juurensha(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
-#You Use a Gun, I Use a Bow
-python scraper.py https://chrysanthemumgarden.com/novel-tl/bow/bow-1/ "你们用枪我用弓[电竞]_juurensha(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# Strategy to Capture That Scum Gong
+python scraper.py https://chrysanthemumgarden.com/novel-tl/scsg/scsg-1/ "Strategy to Capture That Scum Gong_攻略那个渣攻_eve(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
-#Strategy to Capture That Scum Gong
-python scraper.py https://chrysanthemumgarden.com/novel-tl/scsg/scsg-1/ "攻略那个渣攻_eve(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# The Conclusion to When I Mistakenly Saved the Villain
+python scraper.py https://chrysanthemumgarden.com/novel-tl/misvil/misvil-1/ "The Conclusion to When I Mistakenly Saved the Villain_论救错反派的下场_SleepyLittleMushrooms(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
-#The Conclusion to When I Mistakenly Saved the Villain
-python scraper.py https://chrysanthemumgarden.com/novel-tl/misvil/misvil-1/ "论救错反派的下场_SleepyLittleMushrooms(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# Accidental Mark
+python scraper.py https://chrysanthemumgarden.com/novel-tl/am/am-1/ "Accidental Mark_意外标记_RainbowTurtle(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
-#Accidental Mark
-python scraper.py https://chrysanthemumgarden.com/novel-tl/am/am-1/ "意外标记_RainbowTurtle(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+# Loneliness
+python scraper.py https://chrysanthemumgarden.com/novel-tl/ll/ll-1/ "Loneliness_茕茕_Flareax(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+
+# Later, He Became a Royal Healer
+python scraper.py https://chrysanthemumgarden.com/novel-tl/lhbarh/lhbarh-1/ "Later, He Became a Royal Healer_后来，他成了御用奶妈_yuuki(Crysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+
+# Green Plum Island
+python scraper.py https://chrysanthemumgarden.com/novel-tl/gpi/gpi-1/ "Green Plum Island_青梅屿_ghostbird(Crysanthemum Garden)+Extra6_TinySaltTranslations.txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+python scraper.py https://tinysalttranslations.com/novels/misc/gpi-extra/gpi-e6/ "Green Plum Island_青梅屿_ghostbird(Crysanthemum Garden)+Extra6_TinySaltTranslations.txt"  "//div[@class = 'entry-content']" -head "//h1[@class = 'entry-title']"
+
+# I Wasn't Born Lucky
+python scraper.py https://chrysanthemumgarden.com/novel-tl/iwbl/iwbl-1/ "I Wasn't Born Lucky_我不是天生欧皇_rainbowmushroom(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+
+# This Omega is Sweet and Wild
+python scraper.py https://chrysanthemumgarden.com/novel-tl/tosw/tosw-1/ "This Omega is Sweet and Wild_这个omega甜又野_107+9[missing 6 extras]_bobeep(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+
+# Don’t Discriminate Against Species
+python scraper.py https://chrysanthemumgarden.com/novel-tl/ddas/ddas-1/ "Don’t Discriminate Against Species_不要物种歧视_133+5_Ilyz(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
 ############
 ### Raws ###
@@ -264,51 +480,99 @@ python scraper.py https://chrysanthemumgarden.com/novel-tl/am/am-1/ "意外标�
 ### JJXWC ###
 
 # To Rule in a Turbulent World (Raw)
-python scraper.py http://www.jjwxc.net/onebook.php?novelid=3021665&chapterid=1 "亂世為王_raw_plaintext.txt" "//div[contains(@class, 'noveltext')]" -b '//a[span[ text() = "下一章→"]]' -head  "//h2"
+python scraper.py http://www.jjwxc.net/onebook.php?novelid=3021665&chapterid=1 "To Rule in a Turbulent World_亂世為王_raw_plaintext.txt" "//div[contains(@class, 'noveltext')]" -b '//a[span[ text() = "下一章→"]]' -head  "//h2"
 # How is this gentleman faring (Raw)
-python scraper.py http://www.jjwxc.net/onebook.php?novelid=2862999&chapterid=1 "君有疾否_raw_plaintext.txt" "//div[contains(@class, 'noveltext')]" -b '//a[span[ text() = "下一章→"]]' -head  "//h2"
+python scraper.py http://www.jjwxc.net/onebook.php?novelid=2862999&chapterid=1 "How is this Gentleman Feeling_君有疾否_raw.txt" "//div[contains(@class, 'noveltext')]" -b '//a[span[ text() = "下一章→"]]' -head  "//h2"
 # Twin Jades of Jiangdong (Raw)
-python scraper.py http://www.jjwxc.net/onebook.php?novelid=2467979&chapterid=1 "江东双璧_raw_plaintext.txt" "//div[contains(@class, 'noveltext')]" -b '//a[span[ text() = "下一章→"]]' -head  "//h2"
+python scraper.py http://www.jjwxc.net/onebook.php?novelid=2467979&chapterid=1 "Twin Jades of Jiangdong_江东双璧_raw.txt" "//div[contains(@class, 'noveltext')]" -b '//a[span[ text() = "下一章→"]]' -head  "//h2"
 
 ### zhenhunxiaoshuo.com ###
 
 # Royal Road (Raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/43856.html 簪缨问鼎_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+python scraper.py https://www.zhenhunxiaoshuo.com/43856.html "Royal Road_簪缨问鼎_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
 # Transmigrating to the Ming Dynasty’s Imperial Examination  (Raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/100997.html 穿到明朝考科举_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
-# Qiang Jin Jiu (Raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/65246.html 将进酒_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+python scraper.py https://www.zhenhunxiaoshuo.com/100997.html "Transmigrating to the Ming Dynasty’s Imperial Examination_穿到明朝考科举_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+
+# Qiang Jin Jiu (Tang Jiuqing) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/65246.html "Qiang Jin Jiu_将进酒_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# Time-Limited Hunt (Tang Jiuqing) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/167569.html "Time-Limited Hunt_限时狩猎_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+
+# 撒野 (Wu Zhe) (raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/7964.html "Saye_撒野_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+
+# 小蘑菇 (raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/109480.html "Little Mushroom_小蘑菇_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+
 # 2ha (Raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/33386.html 二哈和他的白猫师尊_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+python scraper.py https://www.zhenhunxiaoshuo.com/33386.html 二哈和他的白猫师尊_raw.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
 # Yuwu (Raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/66722.html 余污_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+python scraper.py https://www.zhenhunxiaoshuo.com/66722.html 余污_raw.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
 # TGCF (Raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/6240.html 天官赐福_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+python scraper.py https://www.zhenhunxiaoshuo.com/6240.html 天官赐福_raw.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
 # MDZS (Raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/5419.html 魔道祖师_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+python scraper.py https://www.zhenhunxiaoshuo.com/5419.html 魔道祖师_raw.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
 # Scum Villain (Raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/7118.html 人渣反派自救系统_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
-# Breaking Through the Clouds (Raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/6247.html 破云_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+python scraper.py https://www.zhenhunxiaoshuo.com/7118.html 人渣反派自救系统_raw.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# Breaking Through the Clouds (Huai Shang) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/6247.html 破云_raw.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# Swallowing the Seas (Huai Shang) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/86897.html "Swallowing the Seas_吞海_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# Lantern: Reflection of the Peach Blossoms (Huai Shang) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/28008.html "Lantern Reflection of the Peach Blossoms_提灯映桃花_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+
 # A Sword of Frost (raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/82144.html 一剑霜寒_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
-# Beidou (raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/146845.html 北斗_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+python scraper.py https://www.zhenhunxiaoshuo.com/82144.html "A Sword of Frost_一剑霜寒_raw".txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+
+# Beidou (Meng Xi Shi) (raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/146845.html Beidou_北斗_raw.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
 # 九霄 (Meng Xi Shi) (Raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/75131.html 九霄_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
-# Panguan (raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/167128.html 判官_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+python scraper.py https://www.zhenhunxiaoshuo.com/75131.html 九霄_raw.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+
+# 千秋 (Meng Xi Shi) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/59055.html "千秋_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# 成化十四年 (Meng Xi Shi) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/62357.html "Fourteenth Year of Chenghua_成化十四年_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# 无双 (Meng Xi Shi) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/24561.html "Peerless_无双_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+
+
+
+# 判官 (Musili) (raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/167128.html Panguan_判官_raw.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+
 # 过门 (Priest) (Raw)
-python scraper.py https://www.zhenhunxiaoshuo.com/75131.html 过门_raw_plaintext.txt "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+python scraper.py https://www.zhenhunxiaoshuo.com/75131.html "Guo Men_过门_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# 镇魂 (Priest) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/1.html "Guardian_镇魂_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# 天涯客 (Priest) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/516.html "Faraway Wanderers_天涯客_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# 杀破狼 (Priest) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/688.html "Sha Po Lang_杀破狼_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# 默读 (Priest) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/976.html "Silent Reading_默读_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# 残次品 (Priest) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/1824.html "Can Ci Pin_残次品_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# 山河表里 (Priest) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/318.html "Of Mountains and Rivers_山河表里_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# 锦瑟 (Priest) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/2427.html "Jin Se_锦瑟_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# 六爻 (Priest) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/2612.html "Liu Yao_六爻_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+# 七爷 (Priest) (Raw)
+python scraper.py https://www.zhenhunxiaoshuo.com/2868.html "Lord Seventh_七爷_raw.txt" "//article[@class='article-content']" -b "//span[@class='article-nav-next']/a" -head  "//h1"
+
+
+
 
 ### Misc. 3rd party sites ###
 
 # Yingnu FTYX (Raw, no extras?)
-python scraper.py https://www.lwtxt.net/37015/890751.html 鹰奴_raw_plaintext.txt "//div[@id='content']" -b "//div/a[text()='下一章']" -head  "//h2"
+python scraper.py https://www.lwtxt.net/37015/890751.html Yingnu_鹰奴_raw.txt "//div[@id='content']" -b "//div/a[text()='下一章']" -head  "//h2"
 # 天下 MXS (Raw)
 python scraper.py https://www.lwtxt.net/37015/1147658.html 天下_raw_plaintext.txt "//div[@id='content']" -b "//div/a[text()='下一章']" -head  "//h2"
 # 参商 MXS (Raw) there's no chapter header, so comment out chapter dividing line
 python scraper.py https://www.52shuku.vip/jiakong/pm/h2HD_2.html 参商_raw_plaintext.txt "//article[@class='article-content']" -b "//a[text()='下一页']"
 # Qiang Jin Jiu (Raw, Trad?)
-python scraper.py https://www.twfanti.com/JiangJinJiu/read_1.html 将进酒_cn_trad_raw_plaintext.txt "//div[@class='size16 color5 pt-read-text']" -b "//a[@class='pt-nextchapter']" -head "//h1/a[@title]"
+python scraper.py https://www.twfanti.com/JiangJinJiu/read_1.html "Qiang Jin Jiu_将进酒_cn_trad_raw.txt" "//div[@class='size16 color5 pt-read-text']" -b "//a[@class='pt-nextchapter']" -head "//h1/a[@title]"
 

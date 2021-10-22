@@ -1,15 +1,14 @@
-from bs4 import BeautifulSoup as bs
 import argparse
-import requests
+import re
+import lxml.etree as et
+import lxml.html as lh
+from bs4 import BeautifulSoup as bs
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-import re
-import sys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
 
 def get_ch_links(driver, TOC_url, ch_link_xpath):
     driver.get(TOC_url)
@@ -30,6 +29,7 @@ def start_driver():
 
 def get_body_text(driver, body_xpath):
     print('getting body')
+    #text_wait = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'reader-content')]/p")))
     e = driver.find_element(By.XPATH, body_xpath)
     html = e.get_attribute("outerHTML")  # driver.page_source
     return html
@@ -43,11 +43,18 @@ def make_footnote_counter(start=1):
     return footnote_counter
 
 def html_str_substitutions_for_footnote_formatting(html):
-    # html = re.sub(r'(<li.*?>)(.*?)(</li>)',r'\1<p>FOOTNOTE_PLACEHOLDER\2</p>\3', html, 0, re.DOTALL)
+    html = re.sub(r'(<li.*?>)(.*?)(</li>)',r'\1<p>FOOTNOTE_PLACEHOLDER\2</p>\3', html, 0, re.DOTALL)
     html = re.sub(r'(role="doc-endnote"><p>)', r'\1FOOTNOTE_PLACEHOLDER', html)  # temp
     html = re.sub(r'(class="footnote-item"><p>)', r'\1FOOTNOTE_PLACEHOLDER', html)  # temp
     html = re.sub('FOOTNOTE_PLACEHOLDER', make_footnote_counter(), html)
     return html
+
+def html_str_substitutions_for_removing_wordpress_links(html):
+    links_share_nav_xpath = "//*[contains(@class, 'related') or contains(@class, 'sd-') or contains(@class, 'post-navigation')]"
+    tree = lh.fromstring(html)
+    for bad in tree.xpath(links_share_nav_xpath):
+        bad.drop_tree()
+    return lh.tostring(tree, encoding="unicode") #if encoding is anything besides "unicode" a byte object is returned
 
 def decrypt(encoded):
     #decrypts crysanthemom garden's text scrambling
@@ -139,8 +146,9 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath = '', n
                     #         translator_notes.append(text)
 
                     # clean body (remove hidden garbage text, decrypt jumbled text)
-                    p = re.sub(r"<[a-z]*? style=.*?hidden.*?>.*?</[a-z]*?>", "", p,
-                               flags=re.DOTALL)
+                    p = re.sub(r"(<[a-z]*? style=.*?>.*?</[a-z]*?>) <[a-z]*? style=.*?hidden.*?>.*?</[a-z]*?>", r"\1",
+                               p, flags=re.DOTALL)
+                    p = re.sub(r"<[a-z]*? style=.*?hidden.*?>.*?</[a-z]*?>", "", p, flags=re.DOTALL)
                     encrypted = re.findall(r'<[a-z]*? class="jum">(.*?)</[a-z]*?>', p, flags=re.DOTALL)
                     for e in encrypted:
                         d = decrypt(e)
@@ -159,9 +167,11 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath = '', n
 
             else:
                 html = get_body_text(driver, body_xpath)
+                html = html_str_substitutions_for_removing_wordpress_links(html)
+                print(type(html))
                 html = html_str_substitutions_for_footnote_formatting(html)
                 soup = bs(html, "lxml")
-                all_p = soup.find_all(['p', 'cite'])
+                all_p = soup.find_all(['p', 'h1', 'h2', 'cite'])
                 for p in all_p:
                     p = str(p).replace("<br/>", "\n")
                     p = p.replace('</sup>', "]")
@@ -176,12 +186,10 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath = '', n
 
         # Is there a next page?
         try:
-            print(next_ch_button_xpath)
             next_page_url = driver.find_element(By.XPATH, next_ch_button_xpath).get_attribute('href')
             print(next_page_url)
             driver.get(next_page_url)
             print("Proceeding to next page")
-            # next_page_exists = False #run to test one page only
 
         except NoSuchElementException:
             print("Element does not exist")
