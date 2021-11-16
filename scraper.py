@@ -84,7 +84,7 @@ def close_chapter(file):
     file.write("----------------------------------")
 
 
-def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath = '', next_ch_button_xpath = '',title_must_contain = '', tags = ['h1', 'h2', 'h3', 'p', 'cite']):
+def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath ='', next_ch_button_xpath ='', title_must_contain ='', tags =['h1', 'h2', 'h3', 'p', 'cite']):
     # open output file
     f = open(output_filename, "a", encoding="utf-8")
     # start web crawler
@@ -238,12 +238,12 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath = '', n
             #     for note in translator_notes:
             #         f.write(note_idx + ". " + note + "\n")
 
-        elif tags is 'no_tags':
+        elif tags == 'no_tags':
             html = get_body_text(driver, body_xpath)
             html = move_footnote_to_bottom(html, "//span[contains(@class, 'footnotes')]")
             html = html_str_substitutions_for_removing_wordpress_links(html)
             html = html_str_substitutions_for_footnote_formatting(html)
-            # html = remove_from_html_by_xpath(html, "//div[contains(@class, 'elementor-widget-toggle')]")
+            html = remove_from_html_by_xpath(html, "//div[contains(@class, 'elementor-widget-toggle')]")
             html = html_add_brackets_around_superscript(html)
             f.write(bs(html, "lxml").getText())
             f.write('\n')
@@ -294,6 +294,7 @@ def parse_args():
     #parser.add_argument("--html", help="use flag to save html rather than plaintext", default=False, action='store_true')
     #parser.add_argument(description='scrape text from Wordpress, Wattpadd etc. into one text file', epilog=example_text)
     return parser.parse_args()
+
 
 if __name__ == "__main__":
     args = parse_args()
