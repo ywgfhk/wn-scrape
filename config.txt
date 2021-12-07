@@ -3,8 +3,8 @@
 ############################
 
 # Card Room
-python scraper.py https://chrysanthemumgarden.com/novel-tl/cr/cr-1/ "Card Room_卡牌密室_ch1-453[ongoing_610]_rainbowmushroom(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
-python scraper.py https://chrysanthemumgarden.com/novel-tl/cr/cr-442/ "Card Room_卡牌密室_ch1-453[ongoing_610]_rainbowmushroom(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+python scraper.py https://chrysanthemumgarden.com/novel-tl/cr/cr-1/ "Card Room_卡牌密室_ch1-457[ongoing_610]_rainbowmushroom(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+python scraper.py https://chrysanthemumgarden.com/novel-tl/cr/cr-23/ "Card Room_卡牌密室_ch1-457[ongoing_610]_rainbowmushroom(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
 # Case File Compendium
 python scraper.py https://www.binganben.com/chapter-1-opening-shot/ "Case File Compendium_病案本_ch1-97_ONGOING_cookiecompany.txt" "//div[@class='entry-content']" -b "//a[span[contains (text(), 'Next')]]" -head "//h1[contains(@class, 'entry-title')]"
@@ -626,7 +626,7 @@ python scraper.py https://chrysanthemumgarden.com/novel-tl/dyrmn/dyrmn-41/ "Do Y
 # The Demon King Always Thinks I’m Secretly In Love With Him
 python scraper.py http://ignition-one.org/demon-king/chapter-1/ "The Demon King Always Thinks I’m Secretly In Love With Him_魔君总以为我暗恋他_1-6_Ignition-One_7-103+1_Rosana(Chrysanthemum Garden).txt"  "//div[contains(@class, 'entry-content')]" -head "//h1[contains(@class, 'entry-title')]" -b "//a[contains(text(),'Next')]"
 python scraper.py https://chrysanthemumgarden.com/novel-tl/dkatsl/dkatsl-7/ "The Demon King Always Thinks I’m Secretly In Love With Him_魔君总以为我暗恋他_1-6_Ignition-One_7-103+1_Rosana(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
-python scraper.py https://chrysanthemumgarden.com/novel-tl/dkatsl/dkatsl-99/ "The Demon King Always Thinks I’m Secretly In Love With Him_魔君总以为我暗恋他_1-6_Ignition-One_7-103+1_Rosana(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
+python scraper.py https://chrysanthemumgarden.com/novel-tl/dkatsl/dkatsl-101/ "The Demon King Always Thinks I’m Secretly In Love With Him_魔君总以为我暗恋他_1-6_Ignition-One_7-103+1_Rosana(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"
 
 # Falling into the Abyss
 python scraper.py https://chrysanthemumgarden.com/novel-tl/abyss/abyss-1/ "Falling into the Abyss_黑洞坠落_FleurdeLys(Chrysanthemum Garden).txt" "//div[@class = 'entry-content']" -b "//a[span[text() = 'Next']]" -head "//span[@class = 'chapter-title'][1]"

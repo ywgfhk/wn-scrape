@@ -205,6 +205,7 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath ='', ne
                 f.write('\n')
         elif first_ch_url.startswith('https://chrysanthemumgarden.com/'):
             html = get_body_text(driver, body_xpath)
+            html = remove_from_html_by_xpath(html, ["//*[contains(@style, 'hidden')]"])
             html = html_str_substitutions_for_footnote_formatting(html)
             soup = bs(html, "lxml")
 
@@ -227,9 +228,9 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath ='', ne
                 #         translator_notes.append(text)
 
                 # clean body (remove hidden garbage text, decrypt jumbled text)
-                p = re.sub(r"(<[a-z]*? style=.*?>.*?</[a-z]*?>) <[a-z]*? style=.*?hidden.*?>.*?</[a-z]*?>", r"\1",
-                           p, flags=re.DOTALL)
-                p = re.sub(r"<[a-z]*? style=.*?hidden.*?>.*?</[a-z]*?>", "", p, flags=re.DOTALL)
+                # p = re.sub(r"(<[a-z]*? style=.*?>.*?</[a-z]*?>) <[a-z]*? style=.*?hidden.*?>.*?</[a-z]*?>", r"\1",
+                #            p, flags=re.DOTALL)
+                # p = re.sub(r"<[a-z]*? style=.*?hidden.*?>.*?</[a-z]*?>", "", p, flags=re.DOTALL) #should be taken care of by remove by xpath function above
                 encrypted = re.findall(r'<[a-z]*? class="jum">(.*?)</[a-z]*?>', p, flags=re.DOTALL)
                 for e in encrypted:
                     d = decrypt(e)
