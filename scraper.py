@@ -29,7 +29,7 @@ def start_driver():
 
 def get_body_text(driver, body_xpath):
     print('getting body')
-    #text_wait = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'reader-content')]/p")))
+    #WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, body_xpath)))
     e = driver.find_element(By.XPATH, body_xpath)
     html = e.get_attribute("outerHTML")  # driver.page_source
     return html
@@ -50,21 +50,29 @@ def html_str_substitutions_for_footnote_formatting(html):
     return html
 
 def html_str_substitutions_for_removing_wordpress_links(html):
-    return remove_from_html_by_xpath(html, "//*[contains(@class, 'related') or contains(@class, 'sd-') or contains(@class, 'post-navigation') or contains(@class, 'pp-multiple-authors')]")
+    xpaths = ["//*[contains(@class, 'related') or contains(@class, 'sd-') or contains(@class, 'post-navigation') or contains(@class, 'pp-multiple-authors')]"]
+    return remove_from_html_by_xpath(html, xpaths)
 
-def remove_from_html_by_xpath(html, xpath):
+def remove_from_html_by_xpath(html, xpaths):
+    if not xpaths:
+        return html
     tree = lh.fromstring(html)
-    for bad in tree.xpath(xpath):
-        bad.drop_tree()
+    for x in xpaths:
+        print(x)
+        for bad in tree.xpath(x):
+            bad.drop_tree()
     return lh.tostring(tree, encoding="unicode")  #if encoding is anything besides "unicode" a byte object is returned
 
 def move_footnote_to_bottom(html, footnote_xpath):
     tree = et.ElementTree(lh.fromstring(html))
     root = tree.getroot()
     for footnote in tree.xpath(footnote_xpath):
+        # need to leave a footnote counter [1] behind, ahead of a tail
         footnote.drop_tree() # drop element from original position but keeps tail
-        tailless_copy = et.tostring(deepcopy(footnote), with_tail=False, encoding="unicode") # move tail-less footnote copy to end of html
-        root.append(lh.fromstring('FOOTNOTE_PLACEHOLDER' + tailless_copy + '\n'))
+        tailless_copy = et.tostring(deepcopy(footnote), with_tail=False, encoding="unicode") # use tostring's with_tail parameter to remove tail
+        footnote_text = bs(tailless_copy, "lxml").getText() # get footnote text, prepend footnote number insertion, move footnote to end of html
+        root.append(lh.fromstring('<p>FOOTNOTE_PLACEHOLDER '+footnote_text+'</p>'))
+    print(lh.tostring(tree, encoding="unicode"))
     return lh.tostring(tree, encoding="unicode")
 
 def html_add_brackets_around_superscript(html):
@@ -84,7 +92,7 @@ def close_chapter(file):
     file.write("----------------------------------")
 
 
-def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath ='', next_ch_button_xpath ='', title_must_contain ='', tags =['h1', 'h2', 'h3', 'p', 'cite']):
+def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath ='', next_ch_button_xpath ='', title_must_contain ='', tags =['h1', 'h2', 'h3', 'p', 'cite'], remove_xpath =''):
     # open output file
     f = open(output_filename, "a", encoding="utf-8")
     # start web crawler
@@ -242,15 +250,19 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath ='', ne
             html = get_body_text(driver, body_xpath)
             html = move_footnote_to_bottom(html, "//span[contains(@class, 'footnotes')]")
             html = html_str_substitutions_for_removing_wordpress_links(html)
+            html = remove_from_html_by_xpath(html, remove_xpath)
             html = html_str_substitutions_for_footnote_formatting(html)
-            html = remove_from_html_by_xpath(html, "//div[contains(@class, 'elementor-widget-toggle')]")
             html = html_add_brackets_around_superscript(html)
+            html = html.replace("<br/>", "\n")
+            html = html.replace("<br>", "\n")
             f.write(bs(html, "lxml").getText())
             f.write('\n')
         else:
             html = get_body_text(driver, body_xpath)
-            html = move_footnote_to_bottom(html, "//span[contains(@class, 'footnotes')]")
+            #html = move_footnote_to_bottom(html, "//span[contains(@class, 'footnotes')]")
             html = html_str_substitutions_for_removing_wordpress_links(html)
+            #html = remove_from_html_by_xpath(html, [remove_xpath]) # html = remove_from_html_by_xpath(html, '')
+            ##html = move_footnote_to_bottom(html, "//p[contains(@class,'has-small-font-size')]") // estranged
             html = html_str_substitutions_for_footnote_formatting(html)
             soup = bs(html, "lxml")
             all_p = soup.find_all(tags)
@@ -291,6 +303,7 @@ def parse_args():
     parser.add_argument("--button", "-b", help="next button xpath. If excluded, then script only scrapes single page")
     parser.add_argument("--filter_header", "-f", help="only scrapes page if header contains the following text")
     parser.add_argument("--scrape_tags", "-t", help="Which tags to will be scraped with BeautifulSoup.  Default is ['h1', 'h2', 'h3', 'p', 'cite'].  Use \"no_tags\" to not use BeautifulSoup in cases where text is in the root node.")
+    parser.add_argument("--remove", "-rm", help="supply xpath of elements to remove as a list, ex. ['//h1'] or ['//h1','//h2']")
     #parser.add_argument("--html", help="use flag to save html rather than plaintext", default=False, action='store_true')
     #parser.add_argument(description='scrape text from Wordpress, Wattpadd etc. into one text file', epilog=example_text)
     return parser.parse_args()
@@ -317,6 +330,10 @@ if __name__ == "__main__":
         tags = args.scrape_tags
     else:
         tags = ['h1', 'h2', 'h3', 'p', 'cite']
+    if args.remove:
+        remove_xpath = args.remove
+    else:
+        remove_xpath = ''
 
-    main(first_ch_url, output_filename, body_xpath, chapter_header_xpath, next_ch_button_xpath, title_must_contain, tags)
+    main(first_ch_url, output_filename, body_xpath, chapter_header_xpath, next_ch_button_xpath, title_must_contain, tags, remove_xpath)
 
