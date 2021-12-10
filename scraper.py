@@ -9,6 +9,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+import time
 
 
 def get_ch_links(driver, TOC_url, ch_link_xpath):
@@ -29,9 +30,13 @@ def start_driver():
 
 def get_body_text(driver, body_xpath):
     print('getting body')
-    #WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, body_xpath)))
+    # WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//iframe")))
+    # element = driver.find_element(By.XPATH, "//iframe")
+    # driver.switch_to.frame(element)
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, body_xpath)))
     e = driver.find_element(By.XPATH, body_xpath)
     html = e.get_attribute("outerHTML")  # driver.page_source
+    # driver.switch_to.default_content()
     return html
 
 
@@ -58,7 +63,7 @@ def remove_from_html_by_xpath(html, xpaths):
         return html
     tree = lh.fromstring(html)
     for x in xpaths:
-        print(x)
+        # print(x)
         for bad in tree.xpath(x):
             bad.drop_tree()
     return lh.tostring(tree, encoding="unicode")  #if encoding is anything besides "unicode" a byte object is returned
@@ -72,7 +77,7 @@ def move_footnote_to_bottom(html, footnote_xpath):
         tailless_copy = et.tostring(deepcopy(footnote), with_tail=False, encoding="unicode") # use tostring's with_tail parameter to remove tail
         footnote_text = bs(tailless_copy, "lxml").getText() # get footnote text, prepend footnote number insertion, move footnote to end of html
         root.append(lh.fromstring('<p>FOOTNOTE_PLACEHOLDER '+footnote_text+'</p>'))
-    print(lh.tostring(tree, encoding="unicode"))
+    # print(lh.tostring(tree, encoding="unicode"))
     return lh.tostring(tree, encoding="unicode")
 
 def html_add_brackets_around_superscript(html):
@@ -251,7 +256,7 @@ def main(first_ch_url, output_filename, body_xpath, chapter_header_xpath ='', ne
             html = get_body_text(driver, body_xpath)
             html = move_footnote_to_bottom(html, "//span[contains(@class, 'footnotes')]")
             html = html_str_substitutions_for_removing_wordpress_links(html)
-            html = remove_from_html_by_xpath(html, remove_xpath)
+            html = remove_from_html_by_xpath(html, [remove_xpath])
             html = html_str_substitutions_for_footnote_formatting(html)
             html = html_add_brackets_around_superscript(html)
             html = html.replace("<br/>", "\n")
